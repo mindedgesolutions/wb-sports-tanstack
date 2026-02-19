@@ -139,7 +139,7 @@ const List = ({
                       api={sports.sportsPersonnel.delete(Number(data.id))}
                       queryKey="sports-personnel"
                       deleteQueryKey="selectedSportsPersonnel"
-                      id={1}
+                      id={data.id}
                     />
                   </span>
                 </TableCell>
