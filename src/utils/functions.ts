@@ -1,0 +1,83 @@
+import dayjs from 'dayjs';
+import { useEffect, useState } from 'react';
+import { z } from 'zod';
+
+export const serialNo = ({
+  page,
+  index,
+}: {
+  page: number;
+  index: number;
+}): number => {
+  return (page - 1) * 10 + index + 1;
+};
+
+// -----------------------
+
+export const showLess = (text: string, length: number): string => {
+  if (text.length <= length) return text;
+
+  return text.slice(0, length) + '...';
+};
+
+// -----------------------
+
+export const formatDate = (dateString: Date | string): string => {
+  return dayjs(new Date(dateString)).format('DD/MM/YYYY');
+};
+
+// Pagination starts ------
+export const constructUrl = ({
+  pageNumber,
+  search,
+  pathname,
+}: {
+  pageNumber: number;
+  search: string;
+  pathname: string;
+}): string => {
+  const searchParams = new URLSearchParams(search);
+  searchParams.set('page', pageNumber.toString());
+  return `${pathname}?${searchParams.toString()}`;
+};
+
+export const constructPrevOrNext = ({
+  curretPage,
+  pageCount,
+  search,
+  pathname,
+}: {
+  curretPage: number;
+  pageCount: number;
+  search: string;
+  pathname: string;
+}) => {
+  let prevPage = curretPage - 1;
+  if (prevPage < 1) prevPage = 1;
+  const prevUrl = constructUrl({ pageNumber: prevPage, search, pathname });
+
+  let nextPage = curretPage + 1;
+  if (nextPage > pageCount) nextPage = pageCount;
+  const nextUrl = constructUrl({ pageNumber: nextPage, search, pathname });
+
+  return { prevUrl, nextUrl };
+};
+// Pagination ends ------
+
+export function useDebounce<T>(value: T, delay = 500) {
+  const [debounced, setDebounced] = useState(value);
+
+  useEffect(() => {
+    const timer = setTimeout(() => setDebounced(value), delay);
+    return () => clearTimeout(timer);
+  }, [value, delay]);
+
+  return debounced;
+}
+
+// -----------------------
+
+export const quickFilterSchema = z.object({
+  search: z.string().optional(),
+});
+export type QuickFilterSchema = z.infer<typeof quickFilterSchema>;
