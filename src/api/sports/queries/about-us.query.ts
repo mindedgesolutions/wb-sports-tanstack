@@ -2,7 +2,9 @@ import { useQuery } from '@tanstack/react-query';
 import {
   fetchAchievements,
   fetchAdminStructure,
+  fetchAdminStructureAll,
   fetchKeyPersonnel,
+  fetchKeyPersonnelAll,
 } from '../api/about-us.api';
 
 type ParamProps = {
@@ -32,11 +34,33 @@ export const useAdminStructure = (params?: ParamProps) => {
 
 // ----------------------
 
+export const useAdminStructureAll = () => {
+  return useQuery({
+    queryKey: ['admin-structure'],
+    queryFn: ({ signal }) => {
+      return fetchAdminStructureAll({ signal });
+    },
+  });
+};
+
+// ----------------------
+
 export const useKeyPersonnel = (params?: ParamProps) => {
   return useQuery({
     queryKey: ['key-personnel', params],
     queryFn: ({ signal }) => {
       return fetchKeyPersonnel({ ...params, signal });
+    },
+  });
+};
+
+// ----------------------
+
+export const useKeyPersonnelAll = () => {
+  return useQuery({
+    queryKey: ['key-personnel'],
+    queryFn: ({ signal }) => {
+      return fetchKeyPersonnelAll({ signal });
     },
   });
 };

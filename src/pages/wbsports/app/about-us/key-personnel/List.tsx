@@ -8,9 +8,11 @@ import {
   TableRow,
 } from '@/components/ui/table';
 import {
+  AppDefaultUser,
   AppDeleteModal,
   AppPaginationContainer,
   AppSkeletonRow,
+  AppTooltip,
   FormToggle,
 } from '@/components';
 import { serialNo } from '@/utils/functions';
@@ -69,18 +71,22 @@ const List = ({
           ) : (
             data.map((person, index) => (
               <TableRow
-                className="text-muted-foreground grayscale-100 hover:grayscale-0 transition-all"
+                className="text-muted-foreground grayscale-100 hover:grayscale-0 transition-all group"
                 key={person.id}
               >
                 <TableCell>{serialNo({ page, index })}.</TableCell>
                 <TableCell>
                   <div className="flex gap-2">
                     <section>
-                      <img
-                        src={`${titles.IMAGE_URL}${person.img}`}
-                        alt={person.name}
-                        className="max-w-12 max-h-12 object-cover"
-                      />
+                      {person.img ? (
+                        <img
+                          src={`${titles.IMAGE_URL}${person.img}`}
+                          alt={person.name}
+                          className="max-w-12 max-h-12 object-cover"
+                        />
+                      ) : (
+                        <AppDefaultUser />
+                      )}
                     </section>
                     <section className="flex flex-col justify-center items-start gap-1">
                       <span className="font-medium tracking-wider uppercase">
@@ -90,7 +96,9 @@ const List = ({
                     </section>
                   </div>
                 </TableCell>
-                <TableCell>{person.designation}</TableCell>
+                <TableCell>
+                  <AppTooltip text={person.designation} />
+                </TableCell>
                 <TableCell>
                   <FormToggle
                     checked={person.isActive}

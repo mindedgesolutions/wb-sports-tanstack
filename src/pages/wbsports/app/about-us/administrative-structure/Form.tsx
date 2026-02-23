@@ -18,6 +18,7 @@ import {
   adminStructureSchema,
   type AdminStructureSchema,
 } from '@/schemas/sports/about-us.schema';
+import { showError } from '@/utils/show.error';
 import { showSuccess } from '@/utils/show.success';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useQuery } from '@tanstack/react-query';
@@ -71,7 +72,9 @@ const Form = () => {
               });
             },
           );
+          return;
         }
+        return showError((error as any)?.response?.data?.message);
       },
     });
   };

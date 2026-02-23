@@ -71,6 +71,15 @@ export const fetchAdminStructure = async ({
 
 // ----------------------
 
+export const fetchAdminStructureAll = async ({ signal }: ListProps) => {
+  const res = await customFetch.get(aboutUs.adminStructure.listAll, {
+    signal,
+  });
+  return res.data.data;
+};
+
+// ----------------------
+
 export const createAdminStructure = async (data: AdminStructureSchema) => {
   const res = await customFetch.post(aboutUs.adminStructure.create, data);
   return res.data;
@@ -109,6 +118,15 @@ export const fetchKeyPersonnel = async ({
 }: ListProps) => {
   const res = await customFetch.get(aboutUs.keyPersonnel.list, {
     params: { page, search },
+    signal,
+  });
+  return res.data.data;
+};
+
+// ----------------------
+
+export const fetchKeyPersonnelAll = async ({ signal }: ListProps) => {
+  const res = await customFetch.get(aboutUs.keyPersonnel.listAll, {
     signal,
   });
   return res.data.data;

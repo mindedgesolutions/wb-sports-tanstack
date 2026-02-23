@@ -13,7 +13,11 @@ import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { useDebounce, type QuickFilterSchema } from '@/utils/functions';
 import { useLocation } from 'react-router-dom';
-import { useAdminStructure } from '@/api/sports/queries/about-us.query';
+import {
+  useAdminStructure,
+  useAdminStructureAll,
+} from '@/api/sports/queries/about-us.query';
+import { aboutUs } from '@/constants/sports';
 
 const SpaAdminStructure = () => {
   document.title = `Administrative Structure | ${titles.APP_TITLE_SPORTS}`;
@@ -32,8 +36,14 @@ const SpaAdminStructure = () => {
     page: Number(currentPage) || page,
     search: debounced,
   });
+  const {
+    data: allData,
+    isError: isAllError,
+    error: allError,
+  } = useAdminStructureAll();
 
   if (isError) console.log(error);
+  if (isAllError) console.log(allError);
 
   const meta = data?.meta;
 
@@ -63,9 +73,9 @@ const SpaAdminStructure = () => {
             </AppFilterWrapper>
             <div className="mb-3">
               <AppSortList
-                data={data?.data ?? []}
+                data={allData ?? []}
                 queryKey="admin-structure"
-                api={`/sports/about-us/admin-structure/sort`}
+                api={aboutUs.adminStructure.listSort}
               />
             </div>
             <div className="">

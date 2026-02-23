@@ -9,6 +9,8 @@ export const aboutUs = {
   adminStructure: {
     create: `/sports/about-us/admin-structure`,
     list: `/sports/about-us/admin-structure`,
+    listAll: `/sports/about-us/admin-structure/all`,
+    listSort: `/sports/about-us/admin-structure/sort`,
     update: (id: number) => `/sports/about-us/admin-structure/${id}`,
     delete: (id: number) => `/sports/about-us/admin-structure/${id}`,
     toggle: (id: number) => `/sports/about-us/admin-structure/toggle/${id}`,
@@ -16,6 +18,8 @@ export const aboutUs = {
   keyPersonnel: {
     create: `/sports/about-us/key-personnel`,
     list: `/sports/about-us/key-personnel`,
+    listAll: `/sports/about-us/key-personnel/all`,
+    listSort: `/sports/about-us/key-personnel/sort`,
     update: (id: number) => `/sports/about-us/key-personnel/${id}`,
     delete: (id: number) => `/sports/about-us/key-personnel/${id}`,
     toggle: (id: number) => `/sports/about-us/key-personnel/toggle/${id}`,

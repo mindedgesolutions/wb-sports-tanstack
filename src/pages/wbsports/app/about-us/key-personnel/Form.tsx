@@ -98,7 +98,7 @@ const Form = () => {
           );
           return;
         }
-        showError('Something went wrong. Please try again.');
+        showError((error as any)?.response?.data?.message);
       },
     });
   };

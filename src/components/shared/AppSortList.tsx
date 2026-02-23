@@ -25,8 +25,20 @@ import { Button } from '../ui/button';
 import { ScrollArea } from '../ui/scroll-area';
 import SubmitBtn from './form/SubmitBtn';
 import { useSortList } from '@/api/shared/sort-list/useSortList';
+import { titles } from '@/constants';
+import AppDefaultUser from './AppDefaultUser';
 
-function SortableItem({ id, title }: { id: number; title: string }) {
+function SortableItem({
+  id,
+  title,
+  designation,
+  img,
+}: {
+  id: number;
+  title: string;
+  designation?: string;
+  img?: string;
+}) {
   const { attributes, listeners, setNodeRef, transform, transition } =
     useSortable({ id });
   const style = {
@@ -34,7 +46,29 @@ function SortableItem({ id, title }: { id: number; title: string }) {
     transition,
   };
 
-  return (
+  return designation ? (
+    <div
+      ref={setNodeRef}
+      style={style}
+      {...attributes}
+      {...listeners}
+      className="flex gap-2 justify-start items-center text-muted-foreground text-xs bg-muted hover:bg-muted-foreground/15 rounded my-3 p-2 cursor-grab"
+    >
+      {img ? (
+        <img
+          src={`${titles.IMAGE_URL}${img}`}
+          alt={title}
+          className="max-w-12 max-h-12 object-cover"
+        />
+      ) : (
+        <AppDefaultUser />
+      )}
+      <section className="flex flex-col gap-1">
+        <span className="font-medium tracking-wider uppercase">{title}</span>
+        <span className="text-[10px]">{designation}</span>
+      </section>
+    </div>
+  ) : (
     <div
       ref={setNodeRef}
       style={style}
@@ -91,15 +125,15 @@ const AppSortList = ({
         </Button>
       </DialogTrigger>
       <DialogContent className="sm:max-w-xl min-w-xl">
-        <ScrollArea className="sm:max-w-xl pr-4 m-0">
-          <DialogHeader>
-            <DialogTitle>Sort structure</DialogTitle>
-            <DialogDescription>
-              Click the Save button at the bottom
-            </DialogDescription>
-          </DialogHeader>
-          <form onSubmit={handleSubmit}>
-            <div className="w-full mt-4">
+        <DialogHeader>
+          <DialogTitle>Sort structure</DialogTitle>
+          <DialogDescription>
+            Click the Save button at the bottom
+          </DialogDescription>
+        </DialogHeader>
+        <form onSubmit={handleSubmit}>
+          <div className="w-full mt-4">
+            <ScrollArea className="sm:max-w-xl max-h-96 overflow-y-scroll">
               <DndContext
                 sensors={sensors}
                 collisionDetection={closestCenter}
@@ -124,16 +158,22 @@ const AppSortList = ({
                   strategy={verticalListSortingStrategy}
                 >
                   {items.map((pos: any) => (
-                    <SortableItem key={pos.id} id={pos.id} title={pos.name} />
+                    <SortableItem
+                      key={pos.id}
+                      id={pos.id}
+                      title={pos.name}
+                      designation={pos.designation}
+                      img={pos.img}
+                    />
                   ))}
                 </SortableContext>
               </DndContext>
-            </div>
-            <div className="mt-8 flex justify-end">
-              <SubmitBtn isSubmitting={isPending} label="Save" />
-            </div>
-          </form>
-        </ScrollArea>
+            </ScrollArea>
+          </div>
+          <div className="mt-8 flex justify-end">
+            <SubmitBtn isSubmitting={isPending} label="Save" />
+          </div>
+        </form>
       </DialogContent>
     </Dialog>
   );
