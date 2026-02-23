@@ -8,3 +8,12 @@ export interface SportsPersonnelProps {
   contactTwo: string | null;
   isActive: boolean;
 }
+
+export interface SportsEventProps {
+  id: number;
+  title: string;
+  startDate: Date | null;
+  isActive: boolean;
+  createdAt: Date;
+  updatedAt: Date | null;
+}

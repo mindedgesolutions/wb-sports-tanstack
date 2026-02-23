@@ -53,3 +53,22 @@ export const sportsPersonnelSchema = z
     }
   });
 export type SportsPersonnelSchema = z.infer<typeof sportsPersonnelSchema>;
+
+// ----------------------
+
+export const sportsEventsSchema = z
+  .object({
+    title: z.string().min(1, 'Title is required'),
+    startDate: z.date().optional(),
+  })
+  .superRefine((data, ctx) => {
+    const { startDate } = data;
+    if (startDate && startDate > new Date()) {
+      ctx.addIssue({
+        code: 'custom',
+        path: ['startDate'],
+        message: 'Event date cannot be in the future',
+      });
+    }
+  });
+export type SportsEventsSchema = z.infer<typeof sportsEventsSchema>;

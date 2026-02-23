@@ -36,4 +36,11 @@ export const sports = {
     delete: (id: number) => `/sports/sports/sports-personnel/${id}`,
     toggle: (id: number) => `/sports/sports/sports-personnel/toggle/${id}`,
   },
+  events: {
+    create: `/sports/sports/sports-events`,
+    list: `/sports/sports/sports-events`,
+    update: (id: number) => `/sports/sports/sports-events/${id}`,
+    delete: (id: number) => `/sports/sports/sports-events/${id}`,
+    toggle: (id: number) => `/sports/sports/sports-events/toggle/${id}`,
+  },
 };

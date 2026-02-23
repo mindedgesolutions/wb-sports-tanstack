@@ -1,5 +1,10 @@
 import { useMutation } from '@tanstack/react-query';
-import { addSportsPersonnel, updateSportsPersonnel } from '../api/sports.api';
+import {
+  addSportsEvent,
+  addSportsPersonnel,
+  updateSportsEvent,
+  updateSportsPersonnel,
+} from '../api/sports.api';
 import { queryClient } from '@/api/query.client';
 
 export const useAddSportsPersonnel = () => {
@@ -19,6 +24,29 @@ export const useUpdateSportsPersonnel = () => {
       updateSportsPersonnel(id, data),
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ['sports-personnel'] });
+    },
+  });
+};
+
+// ----------------------
+
+export const useAddSportsEvent = () => {
+  return useMutation({
+    mutationFn: (data: any) => addSportsEvent(data),
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: ['sports-events'] });
+    },
+  });
+};
+
+// ----------------------
+
+export const useUpdateSportsEvent = () => {
+  return useMutation({
+    mutationFn: ({ id, data }: { id: string; data: any }) =>
+      updateSportsEvent(id, data),
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: ['sports-events'] });
     },
   });
 };
