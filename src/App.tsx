@@ -48,6 +48,26 @@ const router = createBrowserRouter([
         path: `sports-infrastructure`,
         element: <pg.SpaSportsInfrastructure />,
       },
+      {
+        path: `add-edit-designations`,
+        element: <pg.SpaDesignations />,
+      },
+      {
+        path: `advisory-board`,
+        element: <pg.SpaAdvisoryBoard />,
+      },
+      {
+        path: `wbc-events`,
+        element: <pg.SpaWbcEvents />,
+      },
+      {
+        path: `khelo-india`,
+        element: <pg.SpaKheloIndia />,
+      },
+      {
+        path: `working-committee`,
+        element: <pg.SpaWorkingCommittee />,
+      },
     ],
   },
 ]);

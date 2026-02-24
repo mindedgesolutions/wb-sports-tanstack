@@ -71,20 +71,24 @@ export const sportsAppMenu = {
       icon: MdOutlineGroups,
       items: [
         {
+          title: 'Add / Edit Designations',
+          url: `${titles.BASE_LINK_SPORTS}/add-edit-designations`,
+        },
+        {
           title: 'Advisory Board',
-          url: '#',
+          url: `${titles.BASE_LINK_SPORTS}/advisory-board`,
         },
         {
           title: 'Working Committee',
-          url: '#',
+          url: `${titles.BASE_LINK_SPORTS}/working-committee`,
         },
         {
           title: 'Events',
-          url: '#',
+          url: `${titles.BASE_LINK_SPORTS}/wbc-events`,
         },
         {
           title: 'Khelo India',
-          url: '#',
+          url: `${titles.BASE_LINK_SPORTS}/khelo-india`,
         },
       ],
     },
