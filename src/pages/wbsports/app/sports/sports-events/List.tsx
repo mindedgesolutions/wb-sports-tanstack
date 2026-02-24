@@ -15,7 +15,7 @@ import {
   FormToggle,
 } from '@/components';
 import { serialNo } from '@/utils/functions';
-import { aboutUs, sports } from '@/constants/sports';
+import { sports } from '@/constants/sports';
 import { Button } from '@/components/ui/button';
 import { HiOutlinePencilAlt } from 'react-icons/hi';
 import { queryClient } from '@/api/query.client';
@@ -102,7 +102,7 @@ const List = ({
                       <HiOutlinePencilAlt className="size-4 text-chart-4" />
                     </Button>
                     <AppDeleteModal
-                      api={aboutUs.keyPersonnel.delete(Number(event.id))}
+                      api={sports.events.delete(Number(event.id))}
                       queryKey="sports-events"
                       deleteQueryKey="selectedSportsEvent"
                       id={event.id}

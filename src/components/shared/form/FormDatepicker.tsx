@@ -59,6 +59,7 @@ const FormDatepicker = <T extends FieldValues>({
                   selected={field.value}
                   defaultMonth={field.value}
                   captionLayout="dropdown"
+                  timeZone="Asia/Kolkata"
                   onSelect={(date) => {
                     field.onChange(date);
                     setOpen(false);
