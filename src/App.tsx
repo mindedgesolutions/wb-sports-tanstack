@@ -53,8 +53,8 @@ const router = createBrowserRouter([
         element: <pg.SpaWbsDesignations />,
       },
       {
-        path: `advisory-board`,
-        element: <pg.SpaAdvisoryBoard />,
+        path: `wbs-council-members`,
+        element: <pg.SpaAdvisoryWorking />,
       },
       {
         path: `wbc-events`,
@@ -63,10 +63,6 @@ const router = createBrowserRouter([
       {
         path: `khelo-india`,
         element: <pg.SpaKheloIndia />,
-      },
-      {
-        path: `working-committee`,
-        element: <pg.SpaWorkingCommittee />,
       },
     ],
   },

@@ -75,12 +75,8 @@ export const sportsAppMenu = {
           url: `${titles.BASE_LINK_SPORTS}/add-edit-designations`,
         },
         {
-          title: 'Advisory Board',
-          url: `${titles.BASE_LINK_SPORTS}/advisory-board`,
-        },
-        {
-          title: 'Working Committee',
-          url: `${titles.BASE_LINK_SPORTS}/working-committee`,
+          title: 'WBS Council Members',
+          url: `${titles.BASE_LINK_SPORTS}/wbs-council-members`,
         },
         {
           title: 'Events',

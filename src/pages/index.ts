@@ -16,8 +16,7 @@ export { default as SpaSportsCategories } from '@/pages/wbsports/app/sports/spor
 export { default as SpaSportsPersonnel } from '@/pages/wbsports/app/sports/sports-personnel/SpaSportsPersonnel';
 export { default as SpaSportsEvents } from '@/pages/wbsports/app/sports/sports-events/SpaSportsEvents';
 export { default as SpaSportsInfrastructure } from '@/pages/wbsports/app/sports/sports-infrastructure/SpaSportsInfrastructure';
-export { default as SpaAdvisoryBoard } from '@/pages/wbsports/app/wbs-council-sports/advisory-board/SpaAdvisoryBoard';
 export { default as SpaWbsDesignations } from '@/pages/wbsports/app/wbs-council-sports/wbc-designations/SpaWbsDesignations';
 export { default as SpaWbcEvents } from '@/pages/wbsports/app/wbs-council-sports/wbc-events/SpaWbcEvents';
 export { default as SpaKheloIndia } from '@/pages/wbsports/app/wbs-council-sports/khelo-india/SpaKheloIndia';
-export { default as SpaWorkingCommittee } from '@/pages/wbsports/app/wbs-council-sports/working-committee/SpaWorkingCommittee';
+export { default as SpaAdvisoryWorking } from '@/pages/wbsports/app/wbs-council-sports/advisory-working/SpaAdvisoryWorking';
