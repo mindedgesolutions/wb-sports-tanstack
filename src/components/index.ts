@@ -14,11 +14,11 @@ export { default as AppPaginationContainer } from '@/components/shared/AppPagina
 export { default as FormTextarea } from '@/components/shared/form/FormTextarea';
 export { default as FormDatepicker } from '@/components/shared/form/FormDatepicker';
 export { default as AppDeleteModal } from '@/components/shared/AppDeleteModal';
-export { default as AppSortList } from '@/components/shared/AppSortList';
 export { default as FormUploadSingle } from '@/components/shared/form/FormUploadSingle';
 export { default as AppRequired } from '@/components/shared/AppRequired';
 export { default as AppContactInfo } from '@/components/shared/AppContactInfo';
 export { default as AppDefaultUser } from '@/components/shared/AppDefaultUser';
+export { default as AppSortListAll } from '@/components/shared/AppSortListAll';
 
 // Sports components ---------
 export { default as SpcTopnav } from '@/components/sports/app/SpcTopnav';

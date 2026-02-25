@@ -1,62 +1,62 @@
 import {
+  useWbsCouncilDesignations,
+  useWbsCouncilDesignationsAll,
+} from '@/api/sports/queries/wbs-council-sports.query';
+import {
   AppBodyWrapper,
   AppFilterWrapper,
   AppSortListAll,
   AppTitleWrapper,
   FormInput,
 } from '@/components';
-import { titles } from '@/constants';
-import List from './List';
-import Form from './Form';
-import { HiOutlineMagnifyingGlass } from 'react-icons/hi2';
-import { useForm } from 'react-hook-form';
-import {
-  useKeyPersonnel,
-  useKeyPersonnelAll,
-} from '@/api/sports/queries/about-us.query';
+import { spBoardTypes, titles } from '@/constants';
+import { wbsCouncilSports } from '@/constants/sports';
 import { useDebounce, type QuickFilterSchema } from '@/utils/functions';
 import { useState } from 'react';
+import { useForm } from 'react-hook-form';
+import { HiOutlineMagnifyingGlass } from 'react-icons/hi2';
 import { useLocation } from 'react-router-dom';
-import { aboutUs } from '@/constants/sports';
-import type { KeyPersonnelProps } from '@/interfaces/sports/about-us.interface';
+import List from './List';
+import Form from './Form';
+import type { WbsCouncilSportsDesignationProps } from '@/interfaces/sports/wbs-council-sports.interface';
 
-const SpaKeyPersonnel = () => {
-  document.title = `Key Personnel | ${titles.APP_TITLE_SPORTS}`;
+const SpaWbsDesignations = () => {
+  document.title = `WBS Council Designations | ${titles.APP_TITLE_SPORTS}`;
   const { ...form } = useForm<QuickFilterSchema>({
     defaultValues: { search: '' },
   });
   const search = form.watch('search');
-  const debounced = useDebounce(search, 1000);
+  const debounced = useDebounce(search, 500);
 
   const [page, setPage] = useState(1);
   const query = useLocation();
   const queryString = new URLSearchParams(query.search);
   const currentPage = queryString.get('page') || 1;
-  const { data, isFetching, isLoading, isError, error } = useKeyPersonnel({
-    page: Number(currentPage) || page,
-    search: debounced,
-  });
+  const { data, isFetching, isLoading, isError, error } =
+    useWbsCouncilDesignations({
+      page: Number(currentPage) || page,
+      search: debounced,
+    });
   const {
     data: allData,
     isError: isErrorAll,
     error: errorAll,
-  } = useKeyPersonnelAll();
+  } = useWbsCouncilDesignationsAll();
 
   if (isError) console.log(error);
   if (isErrorAll) console.log(errorAll);
 
-  const sortData = allData?.map((item: KeyPersonnelProps) => ({
+  const sortData = allData?.map((item: WbsCouncilSportsDesignationProps) => ({
     id: item.id,
     primary: item.name,
-    secondary: item.designation,
-    img: item.img,
+    secondary: spBoardTypes.find((v) => v.value === item.boardType)?.label,
   }));
 
   const meta = data?.meta;
 
   return (
     <>
-      <AppTitleWrapper title="Key Personnel" />
+      <AppTitleWrapper title="WBS Council Designations" />
       <AppBodyWrapper>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
           <div className="col-span-2">
@@ -81,8 +81,8 @@ const SpaKeyPersonnel = () => {
             <div className="mb-3">
               <AppSortListAll
                 data={sortData ?? []}
-                queryKey="key-personnel"
-                api={aboutUs.keyPersonnel.listSort}
+                queryKey="wbs-council-designations"
+                api={wbsCouncilSports.designations.listSort}
               />
             </div>
             <List
@@ -102,4 +102,4 @@ const SpaKeyPersonnel = () => {
     </>
   );
 };
-export default SpaKeyPersonnel;
+export default SpaWbsDesignations;

@@ -28,17 +28,14 @@ import { useSortList } from '@/api/shared/sort-list/useSortList';
 import { titles } from '@/constants';
 import AppDefaultUser from './AppDefaultUser';
 
-function SortableItem({
-  id,
-  title,
-  designation,
-  img,
-}: {
+type SortableItemProps = {
   id: number;
-  title: string;
-  designation?: string;
+  primary: string;
+  secondary?: string;
   img?: string;
-}) {
+};
+
+function SortableItem({ id, primary, secondary, img }: SortableItemProps) {
   const { attributes, listeners, setNodeRef, transform, transition } =
     useSortable({ id });
   const style = {
@@ -46,7 +43,7 @@ function SortableItem({
     transition,
   };
 
-  return designation ? (
+  return (
     <div
       ref={setNodeRef}
       style={style}
@@ -57,40 +54,30 @@ function SortableItem({
       {img ? (
         <img
           src={`${titles.IMAGE_URL}${img}`}
-          alt={title}
+          alt={primary}
           className="max-w-12 max-h-12 object-cover"
         />
       ) : (
         <AppDefaultUser />
       )}
       <section className="flex flex-col gap-1">
-        <span className="font-medium tracking-wider uppercase">{title}</span>
-        <span className="text-[10px]">{designation}</span>
+        <span className="font-medium tracking-wider uppercase">{primary}</span>
+        <span className="text-[10px]">{secondary}</span>
       </section>
-    </div>
-  ) : (
-    <div
-      ref={setNodeRef}
-      style={style}
-      {...attributes}
-      {...listeners}
-      className="text-muted-foreground text-xs bg-muted hover:bg-muted-foreground/15 rounded my-3 p-2 cursor-grab"
-    >
-      {title}
     </div>
   );
 }
 
-const AppSortList = ({
+const AppSortListAll = ({
   data,
   queryKey,
   api,
 }: {
-  data: any;
+  data: SortableItemProps[];
   queryKey: string;
   api: string;
 }) => {
-  const [items, setItems] = useState<any[]>([]);
+  const [items, setItems] = useState<SortableItemProps[]>([]);
   const [open, setOpen] = useState(false);
   const openModal = () => setOpen((op) => !op);
   const { mutate, isPending } = useSortList(queryKey);
@@ -157,14 +144,8 @@ const AppSortList = ({
                   items={items}
                   strategy={verticalListSortingStrategy}
                 >
-                  {items.map((pos: any) => (
-                    <SortableItem
-                      key={pos.id}
-                      id={pos.id}
-                      title={pos.name}
-                      designation={pos.designation}
-                      img={pos.img}
-                    />
+                  {items.map((item: SortableItemProps) => (
+                    <SortableItem key={item.id} {...item} />
                   ))}
                 </SortableContext>
               </DndContext>
@@ -178,4 +159,4 @@ const AppSortList = ({
     </Dialog>
   );
 };
-export default AppSortList;
+export default AppSortListAll;

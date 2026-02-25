@@ -37,3 +37,18 @@ export const sportsCategories = [
   { label: 'Athletics', value: 'athletics' },
   { label: 'Gymnastic', value: 'gymnastic' },
 ];
+
+// -------------------
+
+export const spBoardTypes = [
+  {
+    label: 'Advisory Board',
+    value: 'advisory_board',
+    dbValue: 'advisory-board',
+  },
+  {
+    label: 'Working Committee',
+    value: 'working_committee',
+    dbValue: 'working-committee',
+  },
+];

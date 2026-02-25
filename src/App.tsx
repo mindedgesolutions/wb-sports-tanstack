@@ -50,7 +50,7 @@ const router = createBrowserRouter([
       },
       {
         path: `add-edit-designations`,
-        element: <pg.SpaDesignations />,
+        element: <pg.SpaWbsDesignations />,
       },
       {
         path: `advisory-board`,

@@ -1,7 +1,7 @@
 import {
   AppBodyWrapper,
   AppFilterWrapper,
-  AppSortList,
+  AppSortListAll,
   AppTitleWrapper,
   FormInput,
 } from '@/components';
@@ -18,6 +18,7 @@ import {
   useAdminStructureAll,
 } from '@/api/sports/queries/about-us.query';
 import { aboutUs } from '@/constants/sports';
+import type { AdminStructureProps } from '@/interfaces/sports/about-us.interface';
 
 const SpaAdminStructure = () => {
   document.title = `Administrative Structure | ${titles.APP_TITLE_SPORTS}`;
@@ -44,6 +45,11 @@ const SpaAdminStructure = () => {
 
   if (isError) console.log(error);
   if (isAllError) console.log(allError);
+
+  const sortData = allData?.map((item: AdminStructureProps) => ({
+    id: item.id,
+    primary: item.name,
+  }));
 
   const meta = data?.meta;
 
@@ -72,8 +78,8 @@ const SpaAdminStructure = () => {
               </div>
             </AppFilterWrapper>
             <div className="mb-3">
-              <AppSortList
-                data={allData ?? []}
+              <AppSortListAll
+                data={sortData ?? []}
                 queryKey="admin-structure"
                 api={aboutUs.adminStructure.listSort}
               />

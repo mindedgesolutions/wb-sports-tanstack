@@ -37,6 +37,7 @@ export const useUpdateAchievement = () => {
       updateAchievement(id, data),
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ['achievements'] });
+      queryClient.removeQueries({ queryKey: ['selectedAchievement'] });
     },
   });
 };
@@ -76,6 +77,7 @@ export const useUpdateAdminStructure = () => {
       updateAdminStructure(id, data),
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ['admin-structure'] });
+      queryClient.removeQueries({ queryKey: ['selectedAdminStructure'] });
     },
   });
 };
@@ -115,6 +117,7 @@ export const useUpdateKeyPersonnel = () => {
       updateKeyPersonnel(id, data),
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ['key-personnel'] });
+      queryClient.removeQueries({ queryKey: ['selectedKeyPersonnel'] });
     },
   });
 };

@@ -44,3 +44,17 @@ export const sports = {
     toggle: (id: number) => `/sports/sports/sports-events/toggle/${id}`,
   },
 };
+
+// ----------------------
+
+export const wbsCouncilSports = {
+  designations: {
+    create: `/sports/wbs-council-designations`,
+    list: `/sports/wbs-council-designations`,
+    listAll: `/sports/wbs-council-designations/all`,
+    listSort: `/sports/wbs-council-designations/sort`,
+    update: (id: number) => `/sports/wbs-council-designations/${id}`,
+    delete: (id: number) => `/sports/wbs-council-designations/${id}`,
+    toggle: (id: number) => `/sports/wbs-council-designations/toggle/${id}`,
+  },
+};

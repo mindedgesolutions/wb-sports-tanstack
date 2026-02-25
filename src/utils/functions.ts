@@ -32,12 +32,12 @@ export const constructUrl = ({
   search,
   pathname,
 }: {
-  pageNumber: number;
-  search: string;
-  pathname: string;
+  pageNumber?: number;
+  search?: string;
+  pathname?: string;
 }): string => {
   const searchParams = new URLSearchParams(search);
-  searchParams.set('page', pageNumber.toString());
+  pageNumber && searchParams.set('page', pageNumber.toString());
   return `${pathname}?${searchParams.toString()}`;
 };
 
