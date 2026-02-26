@@ -5,6 +5,7 @@ import {
 } from '@/components/ui/input-group';
 import { FieldDescription } from '@/components/ui/field';
 import type { FieldValues, Path, UseFormRegister } from 'react-hook-form';
+import { cn } from '@/lib/utils';
 
 type RHFFormInputProps<T extends FieldValues> = {
   id?: string;
@@ -15,6 +16,7 @@ type RHFFormInputProps<T extends FieldValues> = {
   description?: string;
   iconStart?: React.ReactNode;
   iconEnd?: React.ReactNode;
+  className?: string;
 };
 
 const FormInput = <T extends FieldValues>({
@@ -26,10 +28,11 @@ const FormInput = <T extends FieldValues>({
   description,
   iconStart,
   iconEnd,
+  className,
 }: RHFFormInputProps<T>) => {
   return (
     <>
-      <InputGroup>
+      <InputGroup className={cn(className)}>
         <InputGroupInput
           id={id ?? name}
           placeholder={placeholder}

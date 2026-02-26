@@ -2,6 +2,7 @@ import { useQuery } from '@tanstack/react-query';
 import {
   fetchWbsCouncilDesignations,
   fetchWbsCouncilDesignationsAll,
+  fetchWbsCouncilMembers,
 } from '../api/wbs-council-sports.api';
 
 type ParamProps = {
@@ -25,6 +26,17 @@ export const useWbsCouncilDesignationsAll = () => {
     queryKey: ['wbs-council-designations'],
     queryFn: ({ signal }) => {
       return fetchWbsCouncilDesignationsAll({ signal });
+    },
+  });
+};
+
+// ----------------------
+
+export const useWbsCouncilMembers = (params?: ParamProps) => {
+  return useQuery({
+    queryKey: ['wbs-council-members', params],
+    queryFn: ({ signal }) => {
+      return fetchWbsCouncilMembers({ ...params, signal });
     },
   });
 };

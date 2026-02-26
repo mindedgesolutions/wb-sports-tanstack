@@ -14,7 +14,7 @@ import {
   FormToggle,
 } from '@/components';
 import { serialNo } from '@/utils/functions';
-import { aboutUs, wbsCouncilSports } from '@/constants/sports';
+import { wbsCouncilSports } from '@/constants/sports';
 import { Button } from '@/components/ui/button';
 import { HiOutlinePencilAlt } from 'react-icons/hi';
 import { queryClient } from '@/api/query.client';
@@ -89,7 +89,9 @@ const List = ({
                 <TableCell>
                   <FormToggle
                     checked={designation.isActive}
-                    api={aboutUs.keyPersonnel.toggle(Number(designation.id))}
+                    api={wbsCouncilSports.designations.toggle(
+                      Number(designation.id),
+                    )}
                     queryKey="wbs-council-designations"
                   />
                 </TableCell>

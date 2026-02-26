@@ -1,6 +1,9 @@
 import { customFetch } from '@/api/custom.fetch';
 import { wbsCouncilSports } from '@/constants/sports';
-import type { WbsCouncilDesgnationSchema } from '@/schemas/sports/wbs-council-sports.schema';
+import type {
+  WbsCouncilDesgnationSchema,
+  WbsCouncilMemberSchema,
+} from '@/schemas/sports/wbs-council-sports.schema';
 
 type ListProps = {
   page?: number;
@@ -58,3 +61,79 @@ export const updateWbsCouncilDesignation = async ({
   );
   return res.data;
 };
+
+// WBS Council Designations API ends ------------
+
+// WBS Council Members API starts ------------
+
+export const fetchWbsCouncilMembers = async ({
+  page,
+  search,
+  signal,
+}: ListProps) => {
+  const res = await customFetch.get(wbsCouncilSports.members.list, {
+    params: { page, search },
+    signal,
+  });
+  return res.data.data;
+};
+
+// ----------------------
+
+export const addWbsCouncilMember = async (data: WbsCouncilMemberSchema) => {
+  const formData = new FormData();
+
+  Object.entries(data).forEach(([key, value]) => {
+    if (value instanceof File) {
+      formData.append(key, value);
+    } else if (value !== undefined && value !== null) {
+      formData.append(key, String(value));
+    }
+  });
+
+  const res = await customFetch.post(
+    wbsCouncilSports.members.create,
+    formData,
+    {
+      headers: {
+        'Content-Type': 'multipart/form-data',
+      },
+    },
+  );
+
+  return res.data;
+};
+
+// ----------------------
+
+export const updateWbsCouncilMember = async ({
+  id,
+  data,
+}: {
+  id: string;
+  data: WbsCouncilMemberSchema;
+}) => {
+  const formData = new FormData();
+
+  Object.entries(data).forEach(([key, value]) => {
+    if (value instanceof File) {
+      formData.append(key, value);
+    } else if (value !== undefined && value !== null) {
+      formData.append(key, String(value));
+    }
+  });
+
+  const res = await customFetch.put(
+    wbsCouncilSports.members.update(Number(id)),
+    formData,
+    {
+      headers: {
+        'Content-Type': 'multipart/form-data',
+      },
+    },
+  );
+
+  return res.data;
+};
+
+// WBS Council Members API ends ------------

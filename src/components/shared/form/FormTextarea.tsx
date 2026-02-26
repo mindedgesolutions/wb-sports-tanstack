@@ -7,6 +7,7 @@ import {
   InputGroupTextarea,
 } from '@/components/ui/input-group';
 import { useEffect, useState } from 'react';
+import { cn } from '@/lib/utils';
 
 type RHFFormInputProps<T extends FieldValues> = {
   id?: string;
@@ -19,6 +20,7 @@ type RHFFormInputProps<T extends FieldValues> = {
   iconStart?: React.ReactNode;
   iconEnd?: React.ReactNode;
   maxLen?: number;
+  className?: string;
 };
 
 const FormTextarea = <T extends FieldValues>({
@@ -29,6 +31,7 @@ const FormTextarea = <T extends FieldValues>({
   placeholder,
   description,
   maxLen = 500,
+  className,
 }: RHFFormInputProps<T>) => {
   const [count, setCount] = useState(0);
   const reg = register(name);
@@ -72,7 +75,7 @@ const FormTextarea = <T extends FieldValues>({
 
   return (
     <>
-      <FieldGroup className="max-w-sm">
+      <FieldGroup className={cn('w-full', className)}>
         <Field>
           <InputGroup>
             <InputGroupTextarea

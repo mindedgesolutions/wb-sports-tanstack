@@ -111,7 +111,7 @@ const AppSortListAll = ({
           Sort structure
         </Button>
       </DialogTrigger>
-      <DialogContent className="sm:max-w-xl min-w-xl">
+      <DialogContent className="sm:max-w-xl">
         <DialogHeader>
           <DialogTitle>Sort structure</DialogTitle>
           <DialogDescription>

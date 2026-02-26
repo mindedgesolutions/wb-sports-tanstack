@@ -49,12 +49,23 @@ export const sports = {
 
 export const wbsCouncilSports = {
   designations: {
-    create: `/sports/wbs-council-designations`,
-    list: `/sports/wbs-council-designations`,
-    listAll: `/sports/wbs-council-designations/all`,
-    listSort: `/sports/wbs-council-designations/sort`,
-    update: (id: number) => `/sports/wbs-council-designations/${id}`,
-    delete: (id: number) => `/sports/wbs-council-designations/${id}`,
-    toggle: (id: number) => `/sports/wbs-council-designations/toggle/${id}`,
+    create: `/sports/wbs-council-sports/designations`,
+    list: `/sports/wbs-council-sports/designations`,
+    listAll: `/sports/wbs-council-sports/designations/all`,
+    listSort: `/sports/wbs-council-sports/designations/sort`,
+    update: (id: number) => `/sports/wbs-council-sports/designations/${id}`,
+    delete: (id: number) => `/sports/wbs-council-sports/designations/${id}`,
+    toggle: (id: number) =>
+      `/sports/wbs-council-sports/designations/toggle/${id}`,
+  },
+  members: {
+    create: `/sports/wbs-council-sports/advisory-working`,
+    list: `/sports/wbs-council-sports/advisory-working`,
+    update: (id: number) => `/sports/wbs-council-sports/advisory-working/${id}`,
+    delete: (id: number) => `/sports/wbs-council-sports/advisory-working/${id}`,
+    toggle: (id: number) =>
+      `/sports/wbs-council-sports/advisory-working/toggle/${id}`,
   },
 };
+
+// ----------------------
