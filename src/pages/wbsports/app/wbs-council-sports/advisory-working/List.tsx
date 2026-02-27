@@ -79,7 +79,7 @@ const List = ({
                 <TableCell>
                   <section className="flex flex-col justify-center items-start gap-1">
                     <span className="font-medium tracking-wider uppercase">
-                      {member.designationId}
+                      {member.cDesignation.name}
                     </span>
                     <span className="font-light italic">
                       {
@@ -104,7 +104,7 @@ const List = ({
                     </section>
                     <section className="flex flex-col justify-center items-start gap-1">
                       <span className="font-medium tracking-wider uppercase">
-                        {member.name}
+                        <AppTooltip text={member.name} cropLen={30} />
                       </span>
                       <span className="font-light italic">
                         <AppTooltip
@@ -116,7 +116,7 @@ const List = ({
                   </div>
                 </TableCell>
                 <TableCell>
-                  <AppTooltip text={member.address || ''} cropLen={40} />
+                  <AppTooltip text={member.address || 'N/A'} cropLen={40} />
                 </TableCell>
                 <TableCell>
                   <div className="flex flex-col gap-1">
@@ -137,6 +137,9 @@ const List = ({
                         <Printer className="size-3" />
                         <span>{member.fax}</span>
                       </section>
+                    )}
+                    {!member.phone && !member.email && !member.fax && (
+                      <span>N/A</span>
                     )}
                   </div>
                 </TableCell>

@@ -118,6 +118,7 @@ const Form = ({ member }: { member?: WbsCouncilMemberProps }) => {
     mutation.mutate(payload as any, {
       onSuccess: () => {
         reset();
+        openModal();
         showSuccess(`Member ${msg} successfully`);
       },
       onError: (error: any) => {

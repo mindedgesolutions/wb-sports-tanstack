@@ -9,6 +9,12 @@ export interface WbsCouncilSportsDesignationProps {
 
 // ----------------------
 
+interface CDesignation {
+  name: string;
+}
+
+// ----------------------
+
 export interface WbsCouncilMemberProps {
   id: number;
   boardType: string;
@@ -22,4 +28,5 @@ export interface WbsCouncilMemberProps {
   fax?: string;
   img?: string;
   isActive: boolean;
+  cDesignation: CDesignation;
 }
