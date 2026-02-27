@@ -39,3 +39,5 @@ export const fileTypes = () => {
 
   return { imageTypes, documentTypes };
 };
+
+// -----------------------------

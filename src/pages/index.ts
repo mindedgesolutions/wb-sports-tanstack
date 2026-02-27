@@ -20,3 +20,4 @@ export { default as SpaWbsDesignations } from '@/pages/wbsports/app/wbs-council-
 export { default as SpaWbcEvents } from '@/pages/wbsports/app/wbs-council-sports/wbc-events/SpaWbcEvents';
 export { default as SpaKheloIndia } from '@/pages/wbsports/app/wbs-council-sports/khelo-india/SpaKheloIndia';
 export { default as SpaAdvisoryWorking } from '@/pages/wbsports/app/wbs-council-sports/advisory-working/SpaAdvisoryWorking';
+export { default as SpaAnnouncements } from '@/pages/wbsports/app/announcements/announcements/SpaAnnouncements';

@@ -69,3 +69,13 @@ export const wbsCouncilSports = {
 };
 
 // ----------------------
+
+export const announcements = {
+  announcements: {
+    create: `/sports/announcements/announcements`,
+    list: `/sports/announcements/announcements`,
+    update: (id: number) => `/sports/announcements/announcements/${id}`,
+    delete: (id: number) => `/sports/announcements/announcements/${id}`,
+    toggle: (id: number) => `/sports/announcements/announcements/toggle/${id}`,
+  },
+};

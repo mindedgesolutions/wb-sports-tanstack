@@ -94,16 +94,8 @@ export const sportsAppMenu = {
       icon: IoMicOutline,
       items: [
         {
-          title: 'Notices',
-          url: '#',
-        },
-        {
-          title: 'Circulars',
-          url: '#',
-        },
-        {
-          title: 'Tenders',
-          url: '#',
+          title: 'Announcements',
+          url: `${titles.BASE_LINK_SPORTS}/announcements`,
         },
         {
           title: 'Advertisements',

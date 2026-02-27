@@ -63,6 +63,8 @@ const Form = ({ member }: { member?: WbsCouncilMemberProps }) => {
       phone: '',
       email: '',
       fax: '',
+      newImg: undefined,
+      existingImg: '',
     },
     mode: 'all',
     resolver: zodResolver(wbsCouncilMemberSchema),
@@ -110,8 +112,44 @@ const Form = ({ member }: { member?: WbsCouncilMemberProps }) => {
 
   // -------------------------------
 
+  useEffect(() => {
+    if (selected) {
+      form.reset({
+        boardType: selected.boardType,
+        name: selected.name,
+        designationLabel: selected.designationLabel || '',
+        address: selected.address || '',
+        phone: selected.phone || '',
+        email: selected.email || '',
+        fax: selected.fax || '',
+        existingImg: selected.img || undefined,
+        newImg: undefined,
+      });
+    } else {
+      form.reset({
+        boardType: '',
+        designationId: '',
+        name: '',
+        designationLabel: '',
+        address: '',
+        phone: '',
+        email: '',
+        fax: '',
+        existingImg: undefined,
+        newImg: undefined,
+      });
+    }
+  }, [selected]);
+
+  useEffect(() => {
+    selected && form.setValue('designationId', String(selected.designationId));
+  }, [selected, filteredDesignations]);
+
+  // -------------------------------
+
   const handleSubmit = async (data: WbsCouncilMemberSchema) => {
     const mutation = selected ? updateMember : addMember;
+    console.log(data);
     const payload = selected ? { id: selected.id, data } : data;
     const msg = selected ? 'updated' : 'added';
 
@@ -137,46 +175,12 @@ const Form = ({ member }: { member?: WbsCouncilMemberProps }) => {
     });
   };
 
-  // -------------------------------
-
-  useEffect(() => {
-    if (selected) {
-      form.reset({
-        boardType: selected.boardType,
-        name: selected.name,
-        designationLabel: selected.designationLabel || '',
-        address: selected.address || '',
-        phone: selected.phone || '',
-        email: selected.email || '',
-        fax: selected.fax || '',
-        existingImg: selected.img,
-        newImg: undefined,
-      });
-    } else {
-      form.reset({
-        boardType: '',
-        designationId: '',
-        name: '',
-        designationLabel: '',
-        address: '',
-        phone: '',
-        email: '',
-        fax: '',
-        existingImg: undefined,
-        newImg: undefined,
-      });
-    }
-  }, [selected]);
-
-  useEffect(() => {
-    selected && form.setValue('designationId', String(selected.designationId));
-  }, [selected, filteredDesignations]);
-
   return (
     <Dialog open={open} onOpenChange={openModal}>
       <DialogTrigger asChild>
         {member ? (
           <Button
+            type="button"
             variant="ghost"
             size={'icon-xs'}
             onClick={() => {
@@ -187,9 +191,10 @@ const Form = ({ member }: { member?: WbsCouncilMemberProps }) => {
           </Button>
         ) : (
           <Button
+            type="button"
             size={'sm'}
             className="cs-btn-primary"
-            onClick={() => openModal}
+            onClick={openModal}
           >
             Add member
           </Button>

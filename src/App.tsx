@@ -64,6 +64,10 @@ const router = createBrowserRouter([
         path: `khelo-india`,
         element: <pg.SpaKheloIndia />,
       },
+      {
+        path: `announcements`,
+        element: <pg.SpaAnnouncements />,
+      },
     ],
   },
 ]);

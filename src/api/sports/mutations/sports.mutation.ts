@@ -24,6 +24,7 @@ export const useUpdateSportsPersonnel = () => {
       updateSportsPersonnel(id, data),
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ['sports-personnel'] });
+      queryClient.removeQueries({ queryKey: ['selectedSportsPersonnel'] });
     },
   });
 };
@@ -47,6 +48,7 @@ export const useUpdateSportsEvent = () => {
       updateSportsEvent(id, data),
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ['sports-events'] });
+      queryClient.removeQueries({ queryKey: ['selectedSportsEvent'] });
     },
   });
 };

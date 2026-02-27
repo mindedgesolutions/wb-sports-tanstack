@@ -52,3 +52,11 @@ export const spBoardTypes = [
     dbValue: 'working-committee',
   },
 ];
+
+// -------------------
+
+export const spAnnouncementTypes = [
+  { label: 'News', value: 'news' },
+  { label: 'Tender', value: 'tender' },
+  { label: 'Circular', value: 'circular' },
+];
