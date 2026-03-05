@@ -58,14 +58,16 @@ const SpaAnnouncements = () => {
                 </div>
               </div>
             </AppFilterWrapper>
-            <List
-              data={data?.data ?? []}
-              meta={meta}
-              isLoading={isLoading}
-              isFetching={isFetching}
-              page={page}
-              onPageChange={setPage}
-            />
+            <div className="">
+              <List
+                data={data?.data ?? []}
+                meta={meta}
+                isLoading={isLoading}
+                isFetching={isFetching}
+                page={page}
+                onPageChange={setPage}
+              />
+            </div>
           </div>
           <div className="">
             <Form />

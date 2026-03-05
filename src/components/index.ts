@@ -19,6 +19,8 @@ export { default as AppRequired } from '@/components/shared/AppRequired';
 export { default as AppContactInfo } from '@/components/shared/AppContactInfo';
 export { default as AppDefaultUser } from '@/components/shared/AppDefaultUser';
 export { default as AppSortListAll } from '@/components/shared/AppSortListAll';
+export { default as FormRadio } from '@/components/shared/form/FormRadio';
+export { default as FormFile } from '@/components/shared/form/FormFile';
 
 // Sports components ---------
 export { default as SpcTopnav } from '@/components/sports/app/SpcTopnav';

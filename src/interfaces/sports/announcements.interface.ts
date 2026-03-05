@@ -3,7 +3,7 @@ export interface AnnouncementProps {
   type: string;
   annNo: string;
   subject: string;
-  isNew: boolean;
+  isNew: boolean | string;
   startDate: Date | null;
   endDate: Date | null;
   filePath: string;

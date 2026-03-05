@@ -42,7 +42,7 @@ const SpaAchievements = () => {
       <AppBodyWrapper>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
           <div className="col-span-2">
-            <AppFilterWrapper>
+            <AppFilterWrapper className="mb-1">
               <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
                 <div className="col-span-2">
                   <span className="text-xs text-muted-foreground tracking-wide">
