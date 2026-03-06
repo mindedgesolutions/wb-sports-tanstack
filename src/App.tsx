@@ -68,6 +68,10 @@ const router = createBrowserRouter([
         path: `announcements`,
         element: <pg.SpaAnnouncements />,
       },
+      {
+        path: `advertisements`,
+        element: <pg.SpaAdvertisements />,
+      },
     ],
   },
 ]);

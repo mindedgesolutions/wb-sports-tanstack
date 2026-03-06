@@ -7,21 +7,21 @@ export const announcementSchema = z
     annNo: z.string().min(1, 'Announcement no. is required'),
     subject: z.string().min(1, 'Subject is required'),
     isNew: z.string(),
-    startDate: z.date().optional(),
-    endDate: z.date().optional(),
+    startDate: z.coerce.date().optional(),
+    endDate: z.coerce.date().optional(),
     newFile: z.instanceof(File).optional().or(z.undefined()),
     existingFile: z.string().optional(),
   })
   .superRefine((data, ctx) => {
     const { startDate, endDate, newFile, existingFile } = data;
 
-    // if (!newFile && !existingFile?.length) {
-    //   ctx.addIssue({
-    //     code: 'custom',
-    //     path: ['newFile'],
-    //     message: 'Select a file to upload',
-    //   });
-    // }
+    if (!newFile && !existingFile?.length) {
+      ctx.addIssue({
+        code: 'custom',
+        path: ['newFile'],
+        message: 'Select a file to upload',
+      });
+    }
 
     if (startDate && endDate && startDate > endDate) {
       ctx.addIssue({
@@ -49,4 +49,4 @@ export const announcementSchema = z
       }
     }
   });
-export type AnnouncementSchema = z.infer<typeof announcementSchema>;
+export type AnnouncementSchema = z.input<typeof announcementSchema>;

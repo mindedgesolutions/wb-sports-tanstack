@@ -56,7 +56,7 @@ export const spBoardTypes = [
 // -------------------
 
 export const spAnnouncementTypes = [
-  { label: 'News', value: 'news' },
+  { label: 'Notice', value: 'notice' },
   { label: 'Tender', value: 'tender' },
   { label: 'Circular', value: 'circular' },
 ];

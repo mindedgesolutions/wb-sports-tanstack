@@ -34,6 +34,8 @@ import {
 import type { AnnouncementProps } from '@/interfaces/sports/announcements.interface';
 import { LuFileText } from 'react-icons/lu';
 import { File } from 'lucide-react';
+import { showSuccess } from '@/utils/show.success';
+import { showError } from '@/utils/show.error';
 
 const isNewOptions = [
   { value: 'true', label: 'Yes' },
@@ -85,7 +87,31 @@ const Form = () => {
   // -------------------------------
 
   const handleSubmit = async (data: AnnouncementSchema) => {
-    console.log(data);
+    const mutation = selected ? updateNews : addNews;
+    const payload = selected
+      ? { id: String(selected.id), data }
+      : (data as AnnouncementSchema);
+    const msg = selected ? 'updated' : 'added';
+
+    mutation.mutate(payload as any, {
+      onSuccess: () => {
+        reset();
+        showSuccess(`Announcement ${msg} successfully!`);
+      },
+      onError: (error: any) => {
+        if ((error as any)?.response?.data?.error) {
+          Object.entries((error as any)?.response?.data?.error).forEach(
+            ([key, message]) => {
+              form.setError(key as keyof AnnouncementSchema, {
+                message: message as string,
+              });
+            },
+          );
+          return;
+        }
+        showError('Something went wrong. Please try again.');
+      },
+    });
   };
 
   const onError = (errors: any) => {
@@ -100,7 +126,7 @@ const Form = () => {
         annType: selected.type,
         annNo: selected.annNo,
         subject: selected.subject,
-        isNew: selected.isNew as string,
+        isNew: selected.isNew === true ? 'true' : 'false',
         startDate: selected.startDate || undefined,
         endDate: selected.endDate || undefined,
         existingFile: selected.filePath || undefined,
@@ -202,12 +228,15 @@ const Form = () => {
                 />
               </div>
               <div className="grid gap-2">
-                <Label htmlFor="designation">Upload an image</Label>
+                <Label htmlFor="designation">
+                  Select a file <AppRequired />
+                </Label>
                 <FormFile
                   id="newFile"
                   control={form.control}
                   name="newFile"
                   iconEnd={<File />}
+                  description={errors.newFile?.message}
                 />
               </div>
             </div>

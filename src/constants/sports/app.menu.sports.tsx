@@ -99,7 +99,7 @@ export const sportsAppMenu = {
         },
         {
           title: 'Advertisements',
-          url: '#',
+          url: `${titles.BASE_LINK_SPORTS}/advertisements`,
         },
         {
           title: 'Guiding Principles',

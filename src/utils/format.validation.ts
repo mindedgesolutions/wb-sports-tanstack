@@ -35,6 +35,7 @@ export const fileTypes = () => {
     'application/pdf',
     'application/msword',
     'application/vnd.openxmlformats-officedocument.wordprocessingml.document',
+    'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet',
   ];
 
   return { imageTypes, documentTypes };

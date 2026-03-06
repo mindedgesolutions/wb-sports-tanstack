@@ -77,5 +77,16 @@ export const announcements = {
     update: (id: number) => `/sports/announcements/announcements/${id}`,
     delete: (id: number) => `/sports/announcements/announcements/${id}`,
     toggle: (id: number) => `/sports/announcements/announcements/toggle/${id}`,
+    download: (filePath: string) =>
+      `/sports/announcements/announcements/download/${filePath}`,
+  },
+  advertisements: {
+    create: `/sports/announcements/advertisements`,
+    list: `/sports/announcements/advertisements`,
+    update: (id: number) => `/sports/announcements/advertisements/${id}`,
+    delete: (id: number) => `/sports/announcements/advertisements/${id}`,
+    toggle: (id: number) => `/sports/announcements/advertisements/toggle/${id}`,
+    download: (filePath: string) =>
+      `/sports/announcements/advertisements/download/${filePath}`,
   },
 };

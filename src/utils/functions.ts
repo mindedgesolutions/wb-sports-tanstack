@@ -81,3 +81,11 @@ export const quickFilterSchema = z.object({
   search: z.string().optional(),
 });
 export type QuickFilterSchema = z.infer<typeof quickFilterSchema>;
+
+// -----------------------
+
+export const isPreviewable = (fileName: string) => {
+  const previewable = ['pdf', 'jpg', 'jpeg', 'png', 'gif', 'webp'];
+  const ext = fileName.split('.').pop()?.toLowerCase();
+  return previewable.includes(ext || '');
+};
