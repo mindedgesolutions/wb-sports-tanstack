@@ -12,3 +12,18 @@ export interface AnnouncementProps {
   createdAt: Date;
   updatedAt: Date | null;
 }
+
+// ----------------------
+
+export interface AdvertisementProps {
+  id: number;
+  title: string;
+  slug: string;
+  description: string | null;
+  adDate: Date | null;
+  filePath: string;
+  fileName: string;
+  isActive: boolean;
+  createdAt: Date;
+  updatedAt: Date | null;
+}

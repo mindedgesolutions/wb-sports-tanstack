@@ -72,6 +72,14 @@ const router = createBrowserRouter([
         path: `advertisements`,
         element: <pg.SpaAdvertisements />,
       },
+      {
+        path: `guiding-principles`,
+        element: <pg.SpaGuidingPrinciples />,
+      },
+      {
+        path: `players-achievements`,
+        element: <pg.SpaPlayerAchievements />,
+      },
     ],
   },
 ]);

@@ -1,5 +1,8 @@
 import { useQuery } from '@tanstack/react-query';
-import { fetchAnnouncements } from '../api/announcements.api';
+import {
+  fetchAdvertisements,
+  fetchAnnouncements,
+} from '../api/announcements.api';
 
 type ParamProps = {
   page?: number;
@@ -12,5 +15,14 @@ export const useAnnouncements = (params?: ParamProps) => {
     queryFn: ({ signal }) => {
       return fetchAnnouncements({ ...params, signal });
     },
+  });
+};
+
+// ----------------------
+
+export const useAdvertisements = (params?: ParamProps) => {
+  return useQuery({
+    queryKey: ['advertisements', params],
+    queryFn: ({ signal }) => fetchAdvertisements({ ...params, signal }),
   });
 };

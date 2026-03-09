@@ -22,3 +22,5 @@ export { default as SpaKheloIndia } from '@/pages/wbsports/app/wbs-council-sport
 export { default as SpaAdvisoryWorking } from '@/pages/wbsports/app/wbs-council-sports/advisory-working/SpaAdvisoryWorking';
 export { default as SpaAnnouncements } from '@/pages/wbsports/app/announcements/announcements/SpaAnnouncements';
 export { default as SpaAdvertisements } from '@/pages/wbsports/app/announcements/advertisements/SpaAdvertisements';
+export { default as SpaGuidingPrinciples } from '@/pages/wbsports/app/announcements/guiding-principles/SpaGuidingPrinciples';
+export { default as SpaPlayerAchievements } from '@/pages/wbsports/app/achievements-awards/player-achievements/SpaPlayerAchievements';

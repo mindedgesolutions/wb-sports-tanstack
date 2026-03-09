@@ -103,7 +103,7 @@ export const sportsAppMenu = {
         },
         {
           title: 'Guiding Principles',
-          url: '#',
+          url: `${titles.BASE_LINK_SPORTS}/guiding-principles`,
         },
       ],
     },
@@ -114,7 +114,7 @@ export const sportsAppMenu = {
       items: [
         {
           title: 'Players Achievements',
-          url: '#',
+          url: `${titles.BASE_LINK_SPORTS}/players-achievements`,
         },
         {
           title: 'Awards',
