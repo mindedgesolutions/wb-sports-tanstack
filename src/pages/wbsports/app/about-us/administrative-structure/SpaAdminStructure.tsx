@@ -12,13 +12,14 @@ import List from './List';
 import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { useDebounce, type QuickFilterSchema } from '@/utils/functions';
-import { useLocation } from 'react-router-dom';
+import { useSearchParams } from 'react-router-dom';
 import {
   useAdminStructure,
   useAdminStructureAll,
 } from '@/api/sports/queries/about-us.query';
 import { aboutUs } from '@/constants/sports';
 import type { AdminStructureProps } from '@/interfaces/sports/about-us.interface';
+import { useResetPaginationOnSearch } from '@/hooks/use-reset-pagination-on-search';
 
 const SpaAdminStructure = () => {
   document.title = `Administrative Structure | ${titles.APP_TITLE_SPORTS}`;
@@ -28,11 +29,11 @@ const SpaAdminStructure = () => {
   });
   const search = form.watch('search');
   const debounced = useDebounce(search, 1000);
+  useResetPaginationOnSearch(search);
 
   const [page, setPage] = useState(1);
-  const query = useLocation();
-  const queryString = new URLSearchParams(query.search);
-  const currentPage = queryString.get('page') || 1;
+  const [searchParams] = useSearchParams();
+  const currentPage = Number(searchParams.get('page')) || page;
   const { data, isLoading, isError, error, isFetching } = useAdminStructure({
     page: Number(currentPage) || page,
     search: debounced,
@@ -90,7 +91,7 @@ const SpaAdminStructure = () => {
                 meta={meta}
                 isLoading={isLoading}
                 isFetching={isFetching}
-                page={page}
+                page={currentPage}
                 onPageChange={setPage}
               />
             </div>

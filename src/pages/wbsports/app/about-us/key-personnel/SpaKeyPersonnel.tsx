@@ -16,9 +16,10 @@ import {
 } from '@/api/sports/queries/about-us.query';
 import { useDebounce, type QuickFilterSchema } from '@/utils/functions';
 import { useState } from 'react';
-import { useLocation } from 'react-router-dom';
+import { useSearchParams } from 'react-router-dom';
 import { aboutUs } from '@/constants/sports';
 import type { KeyPersonnelProps } from '@/interfaces/sports/about-us.interface';
+import { useResetPaginationOnSearch } from '@/hooks/use-reset-pagination-on-search';
 
 const SpaKeyPersonnel = () => {
   document.title = `Key Personnel | ${titles.APP_TITLE_SPORTS}`;
@@ -26,12 +27,12 @@ const SpaKeyPersonnel = () => {
     defaultValues: { search: '' },
   });
   const search = form.watch('search');
-  const debounced = useDebounce(search, 1000);
+  const debounced = useDebounce(search, 500);
+  useResetPaginationOnSearch(search);
 
   const [page, setPage] = useState(1);
-  const query = useLocation();
-  const queryString = new URLSearchParams(query.search);
-  const currentPage = queryString.get('page') || 1;
+  const [searchParams] = useSearchParams();
+  const currentPage = Number(searchParams.get('page')) || page;
   const { data, isFetching, isLoading, isError, error } = useKeyPersonnel({
     page: Number(currentPage) || page,
     search: debounced,
@@ -90,7 +91,7 @@ const SpaKeyPersonnel = () => {
               meta={meta}
               isLoading={isLoading}
               isFetching={isFetching}
-              page={page}
+              page={currentPage}
               onPageChange={setPage}
             />
           </div>

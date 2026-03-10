@@ -64,7 +64,7 @@ export const constructPrevOrNext = ({
 };
 // Pagination ends ------
 
-export function useDebounce<T>(value: T, delay = 500) {
+export function useDebounce<T>(value: T, delay = 500): T {
   const [debounced, setDebounced] = useState(value);
 
   useEffect(() => {

@@ -15,10 +15,11 @@ import { useDebounce, type QuickFilterSchema } from '@/utils/functions';
 import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { HiOutlineMagnifyingGlass } from 'react-icons/hi2';
-import { useLocation } from 'react-router-dom';
+import { useSearchParams } from 'react-router-dom';
 import List from './List';
 import Form from './Form';
 import type { WbsCouncilSportsDesignationProps } from '@/interfaces/sports/wbs-council-sports.interface';
+import { useResetPaginationOnSearch } from '@/hooks/use-reset-pagination-on-search';
 
 const SpaWbsDesignations = () => {
   document.title = `WBS Council Designations | ${titles.APP_TITLE_SPORTS}`;
@@ -27,11 +28,11 @@ const SpaWbsDesignations = () => {
   });
   const search = form.watch('search');
   const debounced = useDebounce(search, 500);
+  useResetPaginationOnSearch(search);
 
   const [page, setPage] = useState(1);
-  const query = useLocation();
-  const queryString = new URLSearchParams(query.search);
-  const currentPage = queryString.get('page') || 1;
+  const [searchParams] = useSearchParams();
+  const currentPage = Number(searchParams.get('page')) || page;
   const { data, isFetching, isLoading, isError, error } =
     useWbsCouncilDesignations({
       page: Number(currentPage) || page,
@@ -90,7 +91,7 @@ const SpaWbsDesignations = () => {
               meta={meta}
               isLoading={isLoading}
               isFetching={isFetching}
-              page={page}
+              page={currentPage}
               onPageChange={setPage}
             />
           </div>

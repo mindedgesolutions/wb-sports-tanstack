@@ -60,3 +60,26 @@ export const spAnnouncementTypes = [
   { label: 'Tender', value: 'tender' },
   { label: 'Circular', value: 'circular' },
 ];
+
+// -------------------
+
+export const spAchievementTypes = [
+  { label: 'Archery', value: 'archery' },
+  { label: 'Paralympic Athletics', value: 'paralympic-athletics' },
+  { label: 'Boxing', value: 'boxing' },
+  { label: 'Cricket', value: 'cricket' },
+  { label: 'Kabaddi & Weightlifting', value: 'kabaddi-weightlifting' },
+  { label: 'Cycling', value: 'cycling' },
+  { label: 'Hockey', value: 'hockey' },
+  { label: 'Football', value: 'football' },
+  { label: 'Athletics', value: 'athletics' },
+  { label: 'Table Tennis', value: 'table-tennis' },
+  { label: 'Posthumous Award', value: 'posthumous-award' },
+  { label: 'Lawn Tennis', value: 'lawn-tennis' },
+  { label: 'Weight-Lifting', value: 'weight-lifting' },
+  { label: 'Waterpolo', value: 'waterpolo' },
+  { label: 'Shooting', value: 'shooting' },
+  { label: 'Badminton', value: 'badminton' },
+  { label: 'Billiards & Snooker', value: 'billiards-snooker' },
+  { label: 'Chess', value: 'chess' },
+];

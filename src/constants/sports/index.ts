@@ -90,3 +90,18 @@ export const announcements = {
       `/sports/announcements/advertisements/download/${filePath}`,
   },
 };
+
+// ----------------------
+
+export const achievementsAwards = {
+  playerAchievements: {
+    create: `/sports/achievements-awards/player-achievements`,
+    list: `/sports/achievements-awards/player-achievements`,
+    update: (id: number) =>
+      `/sports/achievements-awards/player-achievements/${id}`,
+    delete: (id: number) =>
+      `/sports/achievements-awards/player-achievements/${id}`,
+    toggle: (id: number) =>
+      `/sports/achievements-awards/player-achievements/toggle/${id}`,
+  },
+};

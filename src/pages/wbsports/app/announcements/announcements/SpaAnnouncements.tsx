@@ -10,9 +10,10 @@ import { useDebounce, type QuickFilterSchema } from '@/utils/functions';
 import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { HiOutlineMagnifyingGlass } from 'react-icons/hi2';
-import { useLocation } from 'react-router-dom';
+import { useSearchParams } from 'react-router-dom';
 import List from './List';
 import Form from './Form';
+import { useResetPaginationOnSearch } from '@/hooks/use-reset-pagination-on-search';
 
 const SpaAnnouncements = () => {
   document.title = `Announcements (Notices, Tenders & Circulars) | ${titles.APP_TITLE_SPORTS}`;
@@ -20,12 +21,12 @@ const SpaAnnouncements = () => {
     defaultValues: { search: '' },
   });
   const search = form.watch('search');
-  const debounced = useDebounce(search, 1000);
+  const debounced = useDebounce(search, 500);
+  useResetPaginationOnSearch(search);
 
   const [page, setPage] = useState(1);
-  const query = useLocation();
-  const queryString = new URLSearchParams(query.search);
-  const currentPage = queryString.get('page') || 1;
+  const [searchParams] = useSearchParams();
+  const currentPage = Number(searchParams.get('page')) || page;
   const { data, isFetching, isLoading, isError, error } = useAnnouncements({
     page: Number(currentPage) || page,
     search: debounced,
@@ -64,7 +65,7 @@ const SpaAnnouncements = () => {
                 meta={meta}
                 isLoading={isLoading}
                 isFetching={isFetching}
-                page={page}
+                page={currentPage}
                 onPageChange={setPage}
               />
             </div>
