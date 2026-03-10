@@ -12,11 +12,11 @@ import { HiOutlineMagnifyingGlass } from 'react-icons/hi2';
 import { useSearchParams } from 'react-router-dom';
 import List from './List';
 import Form from './Form';
-import { usePlayerAchievements } from '@/api/sports/queries/achievements-awards.query';
 import { useResetPaginationOnSearch } from '@/hooks/use-reset-pagination-on-search';
+import { useAwards } from '@/api/sports/queries/achievements-awards.query';
 
-const SpaPlayerAchievements = () => {
-  document.title = `Players Achievements | ${titles.APP_TITLE_SPORTS}`;
+const SpaAwards = () => {
+  document.title = `Awards | ${titles.APP_TITLE_SPORTS}`;
   const { ...form } = useForm<QuickFilterSchema>({
     defaultValues: { search: '' },
   });
@@ -27,19 +27,17 @@ const SpaPlayerAchievements = () => {
   const [page, setPage] = useState(1);
   const [searchParams] = useSearchParams();
   const currentPage = Number(searchParams.get('page')) || page;
-  const { data, isFetching, isLoading, isError, error } = usePlayerAchievements(
-    {
-      page: Number(currentPage),
-      search: debounced,
-    },
-  );
+  const { data, isFetching, isLoading, isError, error } = useAwards({
+    page: Number(currentPage) || page,
+    search: debounced,
+  });
 
   if (isError) console.log(error);
   const meta = data?.meta;
 
   return (
     <>
-      <AppTitleWrapper title="Players Achievements" />
+      <AppTitleWrapper title="Awards" />
       <AppBodyWrapper>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
           <div className="col-span-2">
@@ -80,4 +78,4 @@ const SpaPlayerAchievements = () => {
     </>
   );
 };
-export default SpaPlayerAchievements;
+export default SpaAwards;

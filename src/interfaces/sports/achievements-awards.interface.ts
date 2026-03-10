@@ -9,3 +9,16 @@ export interface PlayerAchievementsProps {
   createdAt: Date;
   updatedAt: Date;
 }
+
+// -----------------------------
+
+export interface AwardsProps {
+  id: number;
+  name: string;
+  slug: string;
+  fileName: string;
+  filePath: string;
+  isActive: boolean;
+  createdAt: Date;
+  updatedAt: Date;
+}

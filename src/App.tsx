@@ -80,6 +80,10 @@ const router = createBrowserRouter([
         path: `players-achievements`,
         element: <pg.SpaPlayerAchievements />,
       },
+      {
+        path: `awards`,
+        element: <pg.SpaAwards />,
+      },
     ],
   },
 ]);

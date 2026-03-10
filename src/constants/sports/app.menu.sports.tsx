@@ -118,7 +118,7 @@ export const sportsAppMenu = {
         },
         {
           title: 'Awards',
-          url: '#',
+          url: `${titles.BASE_LINK_SPORTS}/awards`,
         },
       ],
     },

@@ -104,4 +104,13 @@ export const achievementsAwards = {
     toggle: (id: number) =>
       `/sports/achievements-awards/player-achievements/toggle/${id}`,
   },
+  awards: {
+    create: `/sports/achievements-awards/awards`,
+    list: `/sports/achievements-awards/awards`,
+    update: (id: number) => `/sports/achievements-awards/awards/${id}`,
+    delete: (id: number) => `/sports/achievements-awards/awards/${id}`,
+    toggle: (id: number) => `/sports/achievements-awards/awards/toggle/${id}`,
+    download: (filePath: string) =>
+      `/sports/achievements-awards/awards/download/${filePath}`,
+  },
 };
