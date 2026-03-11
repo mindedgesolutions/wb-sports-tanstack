@@ -1,5 +1,8 @@
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import * as pg from '@/pages';
+import { useEffect } from 'react';
+import { socketListeners } from './socket.io/socket.listener';
+import { socket } from './socket.io';
 
 const router = createBrowserRouter([
   { index: true, element: <pg.RootLanding /> },
@@ -97,6 +100,16 @@ const router = createBrowserRouter([
 ]);
 
 function App() {
+  useEffect(() => {
+    if (!socket.connected) socket.connect();
+
+    socketListeners();
+
+    return () => {
+      socket.off();
+    };
+  }, []);
+
   return <RouterProvider router={router} />;
 }
 
