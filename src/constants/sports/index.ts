@@ -114,3 +114,16 @@ export const achievementsAwards = {
       `/sports/achievements-awards/awards/download/${filePath}`,
   },
 };
+
+// ----------------------
+
+export const informationAbout = {
+  stadiums: {
+    create: `/sports/information-about/stadiums`,
+    list: `/sports/information-about/stadiums`,
+    update: (id: number) => `/sports/information-about/stadiums/${id}`,
+    delete: (id: number) => `/sports/information-about/stadiums/${id}`,
+    toggle: (id: number) => `/sports/information-about/stadiums/toggle/${id}`,
+    single: (id: number) => `/sports/information-about/stadiums/${id}`,
+  },
+};

@@ -22,6 +22,7 @@ export { default as AppSortListAll } from '@/components/shared/AppSortListAll';
 export { default as FormRadio } from '@/components/shared/form/FormRadio';
 export { default as FormFile } from '@/components/shared/form/FormFile';
 export { default as AppDownloadIcon } from '@/components/shared/AppDownloadIcon';
+export { default as AppTitleBreadcrumb } from '@/components/shared/AppTitleBreadcrumb';
 
 // Sports components ---------
 export { default as SpcTopnav } from '@/components/sports/app/SpcTopnav';

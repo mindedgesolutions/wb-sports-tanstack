@@ -190,12 +190,7 @@ const Form = ({ member }: { member?: WbsCouncilMemberProps }) => {
             <HiOutlinePencilAlt className="size-4 text-chart-4" />
           </Button>
         ) : (
-          <Button
-            type="button"
-            size={'sm'}
-            className="cs-btn-primary"
-            onClick={openModal}
-          >
+          <Button type="button" size={'sm'} className="cs-btn-primary">
             Add member
           </Button>
         )}
