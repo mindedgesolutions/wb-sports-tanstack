@@ -13,7 +13,7 @@ import { useSearchParams } from 'react-router-dom';
 import List from './List';
 import Form from './Form';
 import { useResetPaginationOnSearch } from '@/hooks/use-reset-pagination-on-search';
-import { useAwards } from '@/api/sports/queries/achievements-awards.query';
+import { useAwards } from '@/tanstack/sports/queries/achievements-awards.query';
 
 const SpaAwards = () => {
   document.title = `Awards | ${titles.APP_TITLE_SPORTS}`;

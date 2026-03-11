@@ -1,4 +1,4 @@
-import { customFetch } from '@/api/custom.fetch';
+import { customFetch } from '@/tanstack/custom.fetch';
 import { achievementsAwards } from '@/constants/sports';
 import type { PlayerAchievementSchema } from '@/schemas/sports/achievements-awards.schema';
 

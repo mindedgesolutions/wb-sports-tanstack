@@ -1,4 +1,4 @@
-import { useSportsEvents } from '@/api/sports/queries/sports.query';
+import { useSportsEvents } from '@/tanstack/sports/queries/sports.query';
 import {
   AppBodyWrapper,
   AppFilterWrapper,

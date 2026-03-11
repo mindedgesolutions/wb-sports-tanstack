@@ -22,7 +22,7 @@ import { Label } from '@/components/ui/label';
 import {
   useAddKeyPersonnel,
   useUpdateKeyPersonnel,
-} from '@/api/sports/mutations/about-us.mutation';
+} from '@/tanstack/sports/mutations/about-us.mutation';
 import { Trash2, User } from 'lucide-react';
 import { fileSizes } from '@/utils/format.validation';
 import { zodResolver } from '@hookform/resolvers/zod';
@@ -31,7 +31,7 @@ import { showError } from '@/utils/show.error';
 import { titles } from '@/constants';
 import { useQuery } from '@tanstack/react-query';
 import type { KeyPersonnelProps } from '@/interfaces/sports/about-us.interface';
-import { queryClient } from '@/api/query.client';
+import { queryClient } from '@/tanstack/query.client';
 import { PiTreeStructureLight } from 'react-icons/pi';
 import { SlBadge } from 'react-icons/sl';
 import { PiUserCircleLight } from 'react-icons/pi';

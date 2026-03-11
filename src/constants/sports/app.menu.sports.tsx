@@ -6,6 +6,7 @@ import { HiOutlineTrophy } from 'react-icons/hi2';
 import { LuCircleUserRound } from 'react-icons/lu';
 import { MdOutlineHome } from 'react-icons/md';
 import { titles } from '..';
+import { Headphones, Images, Info, Newspaper, Rss } from 'lucide-react';
 
 export const sportsAppMenu = {
   navMain: [
@@ -121,6 +122,79 @@ export const sportsAppMenu = {
           url: `${titles.BASE_LINK_SPORTS}/awards`,
         },
       ],
+    },
+    {
+      title: 'Information About',
+      url: '#',
+      icon: Info,
+      items: [
+        {
+          title: 'Stadiums',
+          url: `${titles.BASE_LINK_SPORTS}/stadiums`,
+        },
+        {
+          title: 'Associations',
+          url: `${titles.BASE_LINK_SPORTS}/awards`,
+        },
+        {
+          title: 'FIFA U-17 World Cup',
+          url: `${titles.BASE_LINK_SPORTS}/awards`,
+        },
+        {
+          title: 'Sports Policies',
+          url: `${titles.BASE_LINK_SPORTS}/awards`,
+        },
+        {
+          title: 'Associated Sites',
+          url: `${titles.BASE_LINK_SPORTS}/awards`,
+        },
+      ],
+    },
+    {
+      title: 'Moments',
+      url: '#',
+      icon: Images,
+      items: [
+        {
+          title: 'Photo Gallery',
+          url: `${titles.BASE_LINK_SPORTS}/players-achievements`,
+        },
+        {
+          title: 'Audio Visuals',
+          url: `${titles.BASE_LINK_SPORTS}/awards`,
+        },
+        {
+          title: 'Bulletins',
+          url: `${titles.BASE_LINK_SPORTS}/awards`,
+        },
+        {
+          title: 'Amphan',
+          url: `${titles.BASE_LINK_SPORTS}/awards`,
+        },
+      ],
+    },
+    {
+      title: 'RTI',
+      url: '#',
+      icon: Rss,
+      items: [
+        {
+          title: 'Notices',
+          url: `${titles.BASE_LINK_SPORTS}/players-achievements`,
+        },
+      ],
+    },
+    {
+      title: 'Contact Us',
+      url: `${titles.BASE_LINK_SPORTS}/dashboard`,
+      icon: Headphones,
+      isActive: true,
+    },
+    {
+      title: 'New Scroller (Homepage)',
+      url: `${titles.BASE_LINK_SPORTS}/dashboard`,
+      icon: Newspaper,
+      isActive: true,
     },
   ],
   settings: [

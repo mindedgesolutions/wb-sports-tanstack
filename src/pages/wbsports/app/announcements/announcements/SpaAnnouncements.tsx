@@ -1,4 +1,4 @@
-import { useAnnouncements } from '@/api/sports/queries/announcements.query';
+import { useAnnouncements } from '@/tanstack/sports/queries/announcements.query';
 import {
   AppBodyWrapper,
   AppFilterWrapper,

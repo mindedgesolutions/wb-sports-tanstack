@@ -84,6 +84,14 @@ const router = createBrowserRouter([
         path: `awards`,
         element: <pg.SpaAwards />,
       },
+      {
+        path: `stadiums`,
+        element: <pg.SpaStadiums />,
+      },
+      {
+        path: `stadium/:id?`,
+        element: <pg.SpaStadiumForm />,
+      },
     ],
   },
 ]);

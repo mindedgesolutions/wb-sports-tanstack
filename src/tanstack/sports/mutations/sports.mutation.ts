@@ -5,7 +5,7 @@ import {
   updateSportsEvent,
   updateSportsPersonnel,
 } from '../api/sports.api';
-import { queryClient } from '@/api/query.client';
+import { queryClient } from '@/tanstack/query.client';
 
 export const useAddSportsPersonnel = () => {
   return useMutation({

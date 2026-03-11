@@ -1,8 +1,8 @@
-import { queryClient } from '@/api/query.client';
+import { queryClient } from '@/tanstack/query.client';
 import {
   useCreateWbsCouncilDesignation,
   useUpdateWbsCouncilDesignation,
-} from '@/api/sports/mutations/wbs-council-sports.mutation';
+} from '@/tanstack/sports/mutations/wbs-council-sports.mutation';
 import type { WbsCouncilSportsDesignationProps } from '@/interfaces/sports/wbs-council-sports.interface';
 import {
   wbsCouncilDesgnationSchema,

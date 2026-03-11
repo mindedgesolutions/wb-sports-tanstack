@@ -1,4 +1,4 @@
-import { customFetch } from '@/api/custom.fetch';
+import { customFetch } from '@/tanstack/custom.fetch';
 import { announcements } from '@/constants/sports';
 import type { AnnouncementSchema } from '@/schemas/sports/announcements.schema';
 

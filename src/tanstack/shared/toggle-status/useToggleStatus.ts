@@ -1,5 +1,5 @@
 import { useMutation } from '@tanstack/react-query';
-import { queryClient } from '@/api/query.client';
+import { queryClient } from '@/tanstack/query.client';
 import { showError } from '@/utils/show.error';
 import { showSuccess } from '@/utils/show.success';
 import { toggleStatus } from './toggle-status.api';

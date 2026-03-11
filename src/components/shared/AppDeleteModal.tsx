@@ -1,4 +1,4 @@
-import { useDeleteEntity } from '@/api/shared/delete/useDeleteEntity';
+import { useDeleteEntity } from '@/tanstack/shared/delete/useDeleteEntity';
 import {
   AlertDialog,
   AlertDialogAction,

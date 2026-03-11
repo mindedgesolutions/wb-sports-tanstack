@@ -13,7 +13,7 @@ import { useForm } from 'react-hook-form';
 import {
   useKeyPersonnel,
   useKeyPersonnelAll,
-} from '@/api/sports/queries/about-us.query';
+} from '@/tanstack/sports/queries/about-us.query';
 import { useDebounce, type QuickFilterSchema } from '@/utils/functions';
 import { useState } from 'react';
 import { useSearchParams } from 'react-router-dom';

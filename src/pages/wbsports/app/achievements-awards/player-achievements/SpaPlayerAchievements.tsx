@@ -12,7 +12,7 @@ import { HiOutlineMagnifyingGlass } from 'react-icons/hi2';
 import { useSearchParams } from 'react-router-dom';
 import List from './List';
 import Form from './Form';
-import { usePlayerAchievements } from '@/api/sports/queries/achievements-awards.query';
+import { usePlayerAchievements } from '@/tanstack/sports/queries/achievements-awards.query';
 import { useResetPaginationOnSearch } from '@/hooks/use-reset-pagination-on-search';
 
 const SpaPlayerAchievements = () => {

@@ -1,4 +1,4 @@
-import { useWbsCouncilMembers } from '@/api/sports/queries/wbs-council-sports.query';
+import { useWbsCouncilMembers } from '@/tanstack/sports/queries/wbs-council-sports.query';
 import {
   AppBodyWrapper,
   AppFilterWrapper,

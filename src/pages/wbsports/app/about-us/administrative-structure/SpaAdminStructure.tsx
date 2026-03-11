@@ -16,7 +16,7 @@ import { useSearchParams } from 'react-router-dom';
 import {
   useAdminStructure,
   useAdminStructureAll,
-} from '@/api/sports/queries/about-us.query';
+} from '@/tanstack/sports/queries/about-us.query';
 import { aboutUs } from '@/constants/sports';
 import type { AdminStructureProps } from '@/interfaces/sports/about-us.interface';
 import { useResetPaginationOnSearch } from '@/hooks/use-reset-pagination-on-search';

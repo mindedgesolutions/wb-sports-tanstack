@@ -12,7 +12,7 @@ import { Button } from '@/components/ui/button';
 import { Label } from '@/components/ui/label';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useQuery } from '@tanstack/react-query';
-import { queryClient } from '@/api/query.client';
+import { queryClient } from '@/tanstack/query.client';
 import { LuFileText } from 'react-icons/lu';
 import { File } from 'lucide-react';
 import { showSuccess } from '@/utils/show.success';
@@ -24,7 +24,7 @@ import {
 import {
   useCreateAwards,
   useUpdateAwards,
-} from '@/api/sports/mutations/achievements-awards.mutation';
+} from '@/tanstack/sports/mutations/achievements-awards.mutation';
 import type { AwardsProps } from '@/interfaces/sports/achievements-awards.interface';
 
 const Form = () => {

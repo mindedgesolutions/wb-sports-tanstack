@@ -25,3 +25,5 @@ export { default as SpaAdvertisements } from '@/pages/wbsports/app/announcements
 export { default as SpaGuidingPrinciples } from '@/pages/wbsports/app/announcements/guiding-principles/SpaGuidingPrinciples';
 export { default as SpaPlayerAchievements } from '@/pages/wbsports/app/achievements-awards/player-achievements/SpaPlayerAchievements';
 export { default as SpaAwards } from '@/pages/wbsports/app/achievements-awards/awards/SpaAwards';
+export { default as SpaStadiums } from '@/pages/wbsports/app/information-about/stadiums/SpaStadiums';
+export { default as SpaStadiumForm } from '@/pages/wbsports/app/information-about/stadiums/SpaStadiumForm';

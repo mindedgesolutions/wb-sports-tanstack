@@ -18,7 +18,7 @@ import { serialNo } from '@/utils/functions';
 import { sports } from '@/constants/sports';
 import { Button } from '@/components/ui/button';
 import { HiOutlinePencilAlt } from 'react-icons/hi';
-import { queryClient } from '@/api/query.client';
+import { queryClient } from '@/tanstack/query.client';
 import dayjs from 'dayjs';
 
 type ListProps = {

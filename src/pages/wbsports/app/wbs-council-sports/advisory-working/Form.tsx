@@ -1,8 +1,8 @@
-import { queryClient } from '@/api/query.client';
+import { queryClient } from '@/tanstack/query.client';
 import {
   useAddWbsCouncilMember,
   useUpdateWbsCouncilMember,
-} from '@/api/sports/mutations/wbs-council-sports.mutation';
+} from '@/tanstack/sports/mutations/wbs-council-sports.mutation';
 import type {
   WbsCouncilMemberProps,
   WbsCouncilSportsDesignationProps,
@@ -40,7 +40,7 @@ import { SlBadge } from 'react-icons/sl';
 import { spBoardTypes, titles } from '@/constants';
 import { fileSizes } from '@/utils/format.validation';
 import { PiUserCircleLight } from 'react-icons/pi';
-import { useWbsCouncilDesignationsAll } from '@/api/sports/queries/wbs-council-sports.query';
+import { useWbsCouncilDesignationsAll } from '@/tanstack/sports/queries/wbs-council-sports.query';
 import { ScrollArea } from '@/components/ui/scroll-area';
 import { HiOutlinePencilAlt } from 'react-icons/hi';
 

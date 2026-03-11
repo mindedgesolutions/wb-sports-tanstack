@@ -1,8 +1,8 @@
-import { queryClient } from '@/api/query.client';
+import { queryClient } from '@/tanstack/query.client';
 import {
   useAddSportsPersonnel,
   useUpdateSportsPersonnel,
-} from '@/api/sports/mutations/sports.mutation';
+} from '@/tanstack/sports/mutations/sports.mutation';
 import {
   AppRequired,
   FormDatepicker,

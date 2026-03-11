@@ -1,4 +1,4 @@
-import { useToggleStatus } from '@/api/shared/toggle-status/useToggleStatus';
+import { useToggleStatus } from '@/tanstack/shared/toggle-status/useToggleStatus';
 import { Switch } from '@/components/ui/switch';
 
 const FormToggle = ({

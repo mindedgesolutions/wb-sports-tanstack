@@ -1,4 +1,4 @@
-import { customFetch } from '@/api/custom.fetch';
+import { customFetch } from '@/tanstack/custom.fetch';
 import { wbsCouncilSports } from '@/constants/sports';
 import type {
   WbsCouncilDesgnationSchema,

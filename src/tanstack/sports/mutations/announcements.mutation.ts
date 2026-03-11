@@ -5,7 +5,7 @@ import {
   updateAdvertisement,
   updateAnnouncement,
 } from '../api/announcements.api';
-import { queryClient } from '@/api/query.client';
+import { queryClient } from '@/tanstack/query.client';
 import type {
   AdvertisementSchema,
   AnnouncementSchema,

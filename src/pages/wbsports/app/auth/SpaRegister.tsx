@@ -18,7 +18,7 @@ import {
 } from '@/schemas/auth/auth.schema';
 import { FiUser } from 'react-icons/fi';
 import { FaMobileAlt } from 'react-icons/fa';
-import { customFetch } from '@/api/custom.fetch';
+import { customFetch } from '@/tanstack/custom.fetch';
 import { showSuccess } from '@/utils/show.success';
 import { showError } from '@/utils/show.error';
 

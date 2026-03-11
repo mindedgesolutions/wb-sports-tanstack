@@ -1,7 +1,7 @@
 import {
   useWbsCouncilDesignations,
   useWbsCouncilDesignationsAll,
-} from '@/api/sports/queries/wbs-council-sports.query';
+} from '@/tanstack/sports/queries/wbs-council-sports.query';
 import {
   AppBodyWrapper,
   AppFilterWrapper,

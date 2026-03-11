@@ -1,8 +1,8 @@
-import { queryClient } from '@/api/query.client';
+import { queryClient } from '@/tanstack/query.client';
 import {
   useCreateAdminStructure,
   useUpdateAdminStructure,
-} from '@/api/sports/mutations/about-us.mutation';
+} from '@/tanstack/sports/mutations/about-us.mutation';
 import { AppRequired, FormInput, SubmitBtn } from '@/components';
 import { Button } from '@/components/ui/button';
 import {

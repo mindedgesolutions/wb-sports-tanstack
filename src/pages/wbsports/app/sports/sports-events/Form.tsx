@@ -21,12 +21,12 @@ import {
 import {
   useAddSportsEvent,
   useUpdateSportsEvent,
-} from '@/api/sports/mutations/sports.mutation';
+} from '@/tanstack/sports/mutations/sports.mutation';
 import { useQuery } from '@tanstack/react-query';
 import type { SportsEventProps } from '@/interfaces/sports/sports.interface';
 import { showSuccess } from '@/utils/show.success';
 import { showError } from '@/utils/show.error';
-import { queryClient } from '@/api/query.client';
+import { queryClient } from '@/tanstack/query.client';
 import { useEffect } from 'react';
 import { Label } from '@/components/ui/label';
 

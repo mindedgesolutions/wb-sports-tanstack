@@ -19,7 +19,7 @@ import { Button } from '@/components/ui/button';
 import { Label } from '@/components/ui/label';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useQuery } from '@tanstack/react-query';
-import { queryClient } from '@/api/query.client';
+import { queryClient } from '@/tanstack/query.client';
 import { User } from 'lucide-react';
 import { showSuccess } from '@/utils/show.success';
 import { showError } from '@/utils/show.error';
@@ -30,7 +30,7 @@ import {
 import {
   useCreatePlayerAchievements,
   useUpdatePlayerAchievements,
-} from '@/api/sports/mutations/achievements-awards.mutation';
+} from '@/tanstack/sports/mutations/achievements-awards.mutation';
 import type { PlayerAchievementsProps } from '@/interfaces/sports/achievements-awards.interface';
 import { spAchievementTypes } from '@/constants';
 

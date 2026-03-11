@@ -5,7 +5,7 @@ import {
   updateAwards,
   updatePlayerAchievements,
 } from '../api/achievements-awards.api';
-import { queryClient } from '@/api/query.client';
+import { queryClient } from '@/tanstack/query.client';
 import type { PlayerAchievementSchema } from '@/schemas/sports/achievements-awards.schema';
 
 export const useCreatePlayerAchievements = () => {

@@ -22,7 +22,7 @@ import { Label } from '@/components/ui/label';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { spAnnouncementTypes } from '@/constants';
 import { useQuery } from '@tanstack/react-query';
-import { queryClient } from '@/api/query.client';
+import { queryClient } from '@/tanstack/query.client';
 import {
   announcementSchema,
   type AnnouncementSchema,
@@ -30,7 +30,7 @@ import {
 import {
   useCreateAnnouncement,
   useUpdateAnnouncement,
-} from '@/api/sports/mutations/announcements.mutation';
+} from '@/tanstack/sports/mutations/announcements.mutation';
 import type { AnnouncementProps } from '@/interfaces/sports/announcements.interface';
 import { LuFileText } from 'react-icons/lu';
 import { File } from 'lucide-react';

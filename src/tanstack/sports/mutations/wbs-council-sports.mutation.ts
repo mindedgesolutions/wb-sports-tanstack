@@ -5,7 +5,7 @@ import {
   updateWbsCouncilDesignation,
   updateWbsCouncilMember,
 } from '../api/wbs-council-sports.api';
-import { queryClient } from '@/api/query.client';
+import { queryClient } from '@/tanstack/query.client';
 import type {
   WbsCouncilDesgnationSchema,
   WbsCouncilMemberSchema,

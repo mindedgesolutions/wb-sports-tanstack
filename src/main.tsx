@@ -7,7 +7,7 @@ import { Provider } from 'react-redux';
 import store from './store.ts';
 import { QueryClientProvider } from '@tanstack/react-query';
 import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
-import { queryClient } from '@/api/query.client.ts';
+import { queryClient } from '@/tanstack/query.client.ts';
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>

@@ -19,7 +19,7 @@ import { Button } from '@/components/ui/button';
 import { Label } from '@/components/ui/label';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useQuery } from '@tanstack/react-query';
-import { queryClient } from '@/api/query.client';
+import { queryClient } from '@/tanstack/query.client';
 import {
   advertisementSchema,
   type AdvertisementSchema,
@@ -27,7 +27,7 @@ import {
 import {
   useCreateAdvertisement,
   useUpdateAdvertisement,
-} from '@/api/sports/mutations/announcements.mutation';
+} from '@/tanstack/sports/mutations/announcements.mutation';
 import type { AdvertisementProps } from '@/interfaces/sports/announcements.interface';
 import { LuFileText } from 'react-icons/lu';
 import { File } from 'lucide-react';

@@ -18,7 +18,7 @@ import { serialNo, showLess } from '@/utils/functions';
 import { HiOutlinePencilAlt } from 'react-icons/hi';
 import { Button } from '@/components/ui/button';
 import { aboutUs } from '@/constants/sports';
-import { queryClient } from '@/api/query.client';
+import { queryClient } from '@/tanstack/query.client';
 
 type ListProps = {
   data: AdminStructureProps[];

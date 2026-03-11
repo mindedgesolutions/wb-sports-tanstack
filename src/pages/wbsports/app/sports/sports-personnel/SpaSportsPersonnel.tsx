@@ -1,4 +1,4 @@
-import { useSportsPersonnel } from '@/api/sports/queries/sports.query';
+import { useSportsPersonnel } from '@/tanstack/sports/queries/sports.query';
 import {
   AppBodyWrapper,
   AppFilterWrapper,

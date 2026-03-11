@@ -1,8 +1,8 @@
-import { queryClient } from '@/api/query.client';
+import { queryClient } from '@/tanstack/query.client';
 import {
   useCreateAchievement,
   useUpdateAchievement,
-} from '@/api/sports/mutations/about-us.mutation';
+} from '@/tanstack/sports/mutations/about-us.mutation';
 import {
   AppRequired,
   FormDatepicker,

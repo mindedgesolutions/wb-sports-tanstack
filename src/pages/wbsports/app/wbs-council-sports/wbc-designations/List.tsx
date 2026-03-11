@@ -17,7 +17,7 @@ import { serialNo } from '@/utils/functions';
 import { wbsCouncilSports } from '@/constants/sports';
 import { Button } from '@/components/ui/button';
 import { HiOutlinePencilAlt } from 'react-icons/hi';
-import { queryClient } from '@/api/query.client';
+import { queryClient } from '@/tanstack/query.client';
 import type { WbsCouncilSportsDesignationProps } from '@/interfaces/sports/wbs-council-sports.interface';
 import { spBoardTypes } from '@/constants';
 

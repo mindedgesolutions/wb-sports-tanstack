@@ -24,7 +24,7 @@ import { useEffect, useState } from 'react';
 import { Button } from '../ui/button';
 import { ScrollArea } from '../ui/scroll-area';
 import SubmitBtn from './form/SubmitBtn';
-import { useSortList } from '@/api/shared/sort-list/useSortList';
+import { useSortList } from '@/tanstack/shared/sort-list/useSortList';
 import { titles } from '@/constants';
 import AppDefaultUser from './AppDefaultUser';
 

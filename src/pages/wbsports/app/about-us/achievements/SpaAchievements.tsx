@@ -10,7 +10,7 @@ import Form from './Form';
 import List from './List';
 import { useState } from 'react';
 import { useForm } from 'react-hook-form';
-import { useAchievements } from '@/api/sports/queries/about-us.query';
+import { useAchievements } from '@/tanstack/sports/queries/about-us.query';
 import { useSearchParams } from 'react-router-dom';
 import { useDebounce, type QuickFilterSchema } from '@/utils/functions';
 import { useResetPaginationOnSearch } from '@/hooks/use-reset-pagination-on-search';

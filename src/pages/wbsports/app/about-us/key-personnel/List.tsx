@@ -20,7 +20,7 @@ import { aboutUs } from '@/constants/sports';
 import { Button } from '@/components/ui/button';
 import { HiOutlinePencilAlt } from 'react-icons/hi';
 import { titles } from '@/constants';
-import { queryClient } from '@/api/query.client';
+import { queryClient } from '@/tanstack/query.client';
 
 type ListProps = {
   data: KeyPersonnelProps[];
