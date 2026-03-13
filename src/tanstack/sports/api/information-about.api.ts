@@ -10,13 +10,32 @@ type ListProps = {
 export const createStadium = async (data: any) => {
   const formData = new FormData();
 
-  Object.entries(data).forEach(([key, value]) => {
-    if (value instanceof File) {
-      formData.append(key, value);
-    } else if (value !== undefined && value !== null) {
-      formData.append(key, String(value));
-    }
-  });
+  formData.append('name', data.name);
+  formData.append('location', data.location);
+  if (data.address) {
+    formData.append('address', data.address);
+  }
+  formData.append('newImg', data.newImg);
+  if (data.details) {
+    formData.append('details', data.details);
+  }
+  if (data.newGalleryImg?.length) {
+    data.newGalleryImg.forEach((file: any) => {
+      if (file instanceof File) {
+        formData.append('newGalleryImg', file);
+      }
+    });
+  }
+  if (data.existingGalleryImg?.length) {
+    data.existingGalleryImg.forEach((img: string) => {
+      formData.append('existingGalleryImg[]', img);
+    });
+  }
+  if (data.highlights?.length) {
+    data.highlights.forEach((highlight: any) => {
+      formData.append('highlights[]', highlight.value);
+    });
+  }
 
   const res = await customFetch.post(
     informationAbout.stadiums.create,

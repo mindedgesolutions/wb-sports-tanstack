@@ -23,6 +23,8 @@ export { default as FormRadio } from '@/components/shared/form/FormRadio';
 export { default as FormFile } from '@/components/shared/form/FormFile';
 export { default as AppDownloadIcon } from '@/components/shared/AppDownloadIcon';
 export { default as AppTitleBreadcrumb } from '@/components/shared/AppTitleBreadcrumb';
+export { default as FormTextEditor } from '@/components/shared/form/FormTextEditor';
+export { default as AppFormSectionHeader } from '@/components/shared/wrappers/AppFormSectionHeader';
 
 // Sports components ---------
 export { default as SpcTopnav } from '@/components/sports/app/SpcTopnav';
