@@ -8,6 +8,7 @@ export const titles = {
   BASE_LINK_SPORTS: import.meta.env.VITE_BASE_LINK_SPORTS,
   ACCESS_TOKEN: import.meta.env.VITE_ACCESS_TOKEN,
   IMAGE_URL: import.meta.env.VITE_IMAGE_URL,
+  SOCKET_URL: import.meta.env.VITE_SOCKET_URL,
 };
 
 // -------------------
