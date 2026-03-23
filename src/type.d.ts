@@ -9,6 +9,7 @@ interface MenuProps {
 interface SubmenuProps {
   title: string;
   url: string;
+  isActive?: boolean;
 }
 
 interface UserProps {

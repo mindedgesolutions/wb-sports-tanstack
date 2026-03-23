@@ -85,3 +85,42 @@ export const updateStadium = async ({
   );
   return res.data;
 };
+
+// Stadium related APIs end ----------
+
+// Associations related APIs start ----------
+
+export const createAssociation = async (data: any) => {
+  const formData = new FormData();
+
+  Object.entries(data).forEach(([key, value]) => {
+    if (value instanceof File) {
+      formData.append(key, value);
+    } else {
+      formData.append(key, String(value));
+    }
+  });
+
+  const res = await customFetch.post(
+    informationAbout.associations.create,
+    formData,
+    {
+      headers: { 'Content-Type': 'multipart/form-data' },
+    },
+  );
+  return res.data;
+};
+
+// -----------------------------
+
+export const fetchAssociations = async ({
+  page,
+  search,
+  signal,
+}: ListProps) => {
+  const res = await customFetch.get(informationAbout.associations.list, {
+    params: { page, search },
+    signal,
+  });
+  return res.data.data;
+};

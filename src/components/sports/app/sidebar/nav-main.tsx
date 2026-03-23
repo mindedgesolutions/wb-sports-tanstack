@@ -14,9 +14,11 @@ import {
   SidebarMenuSubButton,
   SidebarMenuSubItem,
 } from '@/components/ui/sidebar';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 
 export function NavMain({ items }: { items: MenuProps[] }) {
+  const { pathname } = useLocation();
+
   return (
     <SidebarGroup>
       <SidebarGroupLabel>Website</SidebarGroupLabel>
@@ -43,7 +45,11 @@ export function NavMain({ items }: { items: MenuProps[] }) {
                   <SidebarMenuSub>
                     {item.items?.map((subItem) => (
                       <SidebarMenuSubItem key={subItem.title}>
-                        <SidebarMenuSubButton asChild className="text-xs">
+                        <SidebarMenuSubButton
+                          asChild
+                          className="text-xs"
+                          isActive={pathname === subItem.url}
+                        >
                           <Link to={subItem.url}>
                             <span>{subItem.title}</span>
                           </Link>

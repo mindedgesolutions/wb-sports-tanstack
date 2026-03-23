@@ -12,8 +12,8 @@ import { sportsAppMenu } from '@/constants/sports/app.menu.sports';
 import { NavSettings } from '@/components/sports/app/sidebar/nav-settings';
 
 export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
-  const navMain = sportsAppMenu.navMain;
-  const settings = sportsAppMenu.settings;
+  const navMain = sportsAppMenu().navMain;
+  const settings = sportsAppMenu().settings;
 
   return (
     <Sidebar collapsible="icon" {...props}>

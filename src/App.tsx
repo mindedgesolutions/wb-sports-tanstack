@@ -16,84 +16,118 @@ const router = createBrowserRouter([
     children: [
       { path: `dashboard`, element: <pg.SpaDashboard /> },
       {
-        path: `sports-in-bengal`,
-        element: <pg.SpaSportsInBengal />,
+        path: `about-us`,
+        children: [
+          {
+            path: `sports-in-bengal`,
+            element: <pg.SpaSportsInBengal />,
+          },
+          {
+            path: `vision-mission`,
+            element: <pg.SpaVisionMission />,
+          },
+          {
+            path: `administrative-structure`,
+            element: <pg.SpaAdminStructure />,
+          },
+          {
+            path: `key-personnel`,
+            element: <pg.SpaKeyPersonnel />,
+          },
+          {
+            path: `achievements`,
+            element: <pg.SpaAchievements />,
+          },
+        ],
       },
       {
-        path: `vision-mission`,
-        element: <pg.SpaVisionMission />,
+        path: `sports`,
+        children: [
+          {
+            path: `sports-categories`,
+            element: <pg.SpaSportsCategories />,
+          },
+          {
+            path: `sports-personnel`,
+            element: <pg.SpaSportsPersonnel />,
+          },
+          {
+            path: `sports-events`,
+            element: <pg.SpaSportsEvents />,
+          },
+          {
+            path: `sports-infrastructure`,
+            element: <pg.SpaSportsInfrastructure />,
+          },
+        ],
       },
       {
-        path: `administrative-structure`,
-        element: <pg.SpaAdminStructure />,
-      },
-      {
-        path: `key-personnel`,
-        element: <pg.SpaKeyPersonnel />,
-      },
-      {
-        path: `achievements`,
-        element: <pg.SpaAchievements />,
-      },
-      {
-        path: `sports-categories`,
-        element: <pg.SpaSportsCategories />,
-      },
-      {
-        path: `sports-personnel`,
-        element: <pg.SpaSportsPersonnel />,
-      },
-      {
-        path: `sports-events`,
-        element: <pg.SpaSportsEvents />,
-      },
-      {
-        path: `sports-infrastructure`,
-        element: <pg.SpaSportsInfrastructure />,
-      },
-      {
-        path: `add-edit-designations`,
-        element: <pg.SpaWbsDesignations />,
-      },
-      {
-        path: `wbs-council-members`,
-        element: <pg.SpaAdvisoryWorking />,
-      },
-      {
-        path: `wbc-events`,
-        element: <pg.SpaWbcEvents />,
-      },
-      {
-        path: `khelo-india`,
-        element: <pg.SpaKheloIndia />,
+        path: `wbs-council`,
+        children: [
+          {
+            path: `add-edit-designations`,
+            element: <pg.SpaWbsDesignations />,
+          },
+          {
+            path: `wbs-council-members`,
+            element: <pg.SpaAdvisoryWorking />,
+          },
+          {
+            path: `wbc-events`,
+            element: <pg.SpaWbcEvents />,
+          },
+          {
+            path: `khelo-india`,
+            element: <pg.SpaKheloIndia />,
+          },
+        ],
       },
       {
         path: `announcements`,
-        element: <pg.SpaAnnouncements />,
+        children: [
+          {
+            path: `announcements`,
+            element: <pg.SpaAnnouncements />,
+          },
+          {
+            path: `advertisements`,
+            element: <pg.SpaAdvertisements />,
+          },
+          {
+            path: `guiding-principles`,
+            element: <pg.SpaGuidingPrinciples />,
+          },
+        ],
       },
       {
-        path: `advertisements`,
-        element: <pg.SpaAdvertisements />,
+        path: `achievements-awards`,
+        children: [
+          {
+            path: `players-achievements`,
+            element: <pg.SpaPlayerAchievements />,
+          },
+          {
+            path: `awards`,
+            element: <pg.SpaAwards />,
+          },
+        ],
       },
       {
-        path: `guiding-principles`,
-        element: <pg.SpaGuidingPrinciples />,
-      },
-      {
-        path: `players-achievements`,
-        element: <pg.SpaPlayerAchievements />,
-      },
-      {
-        path: `awards`,
-        element: <pg.SpaAwards />,
-      },
-      {
-        path: `stadiums`,
-        element: <pg.SpaStadiums />,
-      },
-      {
-        path: `stadium/:id?`,
-        element: <pg.SpaStadiumForm />,
+        path: `info-about`,
+        children: [
+          {
+            path: `stadiums`,
+            element: <pg.SpaStadiums />,
+          },
+          {
+            path: `stadium/:id?`,
+            element: <pg.SpaStadiumForm />,
+          },
+          {
+            path: `associations`,
+            element: <pg.SpaAssociations />,
+          },
+        ],
       },
     ],
   },

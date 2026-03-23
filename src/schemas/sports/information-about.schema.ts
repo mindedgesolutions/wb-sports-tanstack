@@ -56,3 +56,38 @@ export const stadiumSchema = z
     }
   });
 export type StadiumSchema = z.infer<typeof stadiumSchema>;
+
+// --------------------------
+
+export const associationSchema = z
+  .object({
+    name: z
+      .string()
+      .min(1, 'Association name is required')
+      .max(255, 'Association name must be at most 255 characters long'),
+    address: z
+      .string()
+      .max(255, 'Address must be at most 255 characters long')
+      .optional(),
+    website: z.string().optional(),
+    email: z.string().optional(),
+    phoneOne: z.string().optional(),
+    phoneTwo: z.string().optional(),
+    fax: z.string().optional(),
+    newLogo: z.array(z.instanceof(File)).optional(),
+    existingLogo: z.array(z.string()).optional(),
+  })
+  .superRefine((data, ctx) => {
+    const { website, email, phoneOne, phoneTwo, fax } = data;
+
+    if (website) {
+      const validUrl = new URL(website);
+      if (!validUrl) {
+        ctx.addIssue({
+          code: 'custom',
+          path: ['website'],
+          message: 'Invalid URL',
+        });
+      }
+    }
+  });

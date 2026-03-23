@@ -29,3 +29,4 @@ export { default as AppFormSectionHeader } from '@/components/shared/wrappers/Ap
 // Sports components ---------
 export { default as SpcTopnav } from '@/components/sports/app/SpcTopnav';
 export { default as SpcProfileContainer } from '@/components/sports/app/SpcProfileContainer';
+export { default as SpcFooter } from '@/components/sports/app/SpcFooter';

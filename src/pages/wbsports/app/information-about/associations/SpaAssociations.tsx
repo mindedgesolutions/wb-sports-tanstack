@@ -1,3 +1,4 @@
+import { useSportsPersonnel } from '@/tanstack/sports/queries/sports.query';
 import {
   AppBodyWrapper,
   AppFilterWrapper,
@@ -9,14 +10,15 @@ import { useDebounce, type QuickFilterSchema } from '@/utils/functions';
 import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { HiOutlineMagnifyingGlass } from 'react-icons/hi2';
-import { Link, useSearchParams } from 'react-router-dom';
+import { useSearchParams } from 'react-router-dom';
 import List from './List';
+import Form from './Form';
 import { useResetPaginationOnSearch } from '@/hooks/use-reset-pagination-on-search';
-import { useStadiums } from '@/tanstack/sports/queries/information-about.query';
-import { Button } from '@/components/ui/button';
+import { useAssociations } from '@/tanstack/sports/queries/information-about.query';
 
-const SpaStadiums = () => {
-  document.title = `Stadiums | ${titles.APP_TITLE_SPORTS}`;
+const SpaAssociations = () => {
+  document.title = `Associations | ${titles.APP_TITLE_SPORTS}`;
+
   const { ...form } = useForm<QuickFilterSchema>({
     defaultValues: { search: '' },
   });
@@ -27,20 +29,21 @@ const SpaStadiums = () => {
   const [page, setPage] = useState(1);
   const [searchParams] = useSearchParams();
   const currentPage = Number(searchParams.get('page')) || page;
-  const { data, isFetching, isLoading, isError, error } = useStadiums({
-    page: Number(currentPage) || page,
+  const { data, isLoading, error, isFetching, isError } = useAssociations({
+    page: Number(currentPage) || 1,
     search: debounced,
   });
 
   if (isError) console.log(error);
+
   const meta = data?.meta;
 
   return (
     <>
-      <AppTitleWrapper title="Stadiums" />
+      <AppTitleWrapper title="Associations" />
       <AppBodyWrapper>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-          <div className="col-span-1 md:col-span-3">
+          <div className="col-span-3">
             <AppFilterWrapper className="mb-1">
               <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
                 <div className="col-span-2">
@@ -61,26 +64,20 @@ const SpaStadiums = () => {
               </div>
             </AppFilterWrapper>
             <div className="mb-3">
-              <Link to={`${titles.BASE_LINK_SPORTS}/info-about/stadium`}>
-                <Button type="button" size={'sm'} className="cs-btn-primary">
-                  Add stadium
-                </Button>
-              </Link>
+              <Form />
             </div>
-            <div className="">
-              <List
-                data={data?.data ?? []}
-                meta={meta}
-                isLoading={isLoading}
-                isFetching={isFetching}
-                page={currentPage}
-                onPageChange={setPage}
-              />
-            </div>
+            <List
+              data={data?.data ?? []}
+              meta={meta}
+              isLoading={isLoading}
+              isFetching={isFetching}
+              page={currentPage}
+              onPageChange={setPage}
+            />
           </div>
         </div>
       </AppBodyWrapper>
     </>
   );
 };
-export default SpaStadiums;
+export default SpaAssociations;

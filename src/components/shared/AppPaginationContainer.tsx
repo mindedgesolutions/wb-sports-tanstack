@@ -89,7 +89,7 @@ const AppPaginationContainer = ({
   });
 
   return (
-    <div className={`${addClass || 'w-full'} mt-8`}>
+    <div className={`${addClass || 'w-full'} mt-8 -mb-8`}>
       <Pagination>
         <PaginationContent>
           {currentPage > 1 && (

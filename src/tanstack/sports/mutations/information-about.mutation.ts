@@ -1,5 +1,9 @@
 import { useMutation } from '@tanstack/react-query';
-import { createStadium, updateStadium } from '../api/information-about.api';
+import {
+  createAssociation,
+  createStadium,
+  updateStadium,
+} from '../api/information-about.api';
 import { queryClient } from '@/tanstack/query.client';
 
 export const useCreateStadium = () => {
@@ -24,6 +28,17 @@ export const useUpdateStadium = () => {
       updateStadium({ data, id }),
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ['stadiums'] });
+    },
+  });
+};
+
+// -----------------------------
+
+export const useCreateAssociation = () => {
+  return useMutation({
+    mutationFn: createAssociation,
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: ['associations'] });
     },
   });
 };

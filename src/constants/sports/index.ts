@@ -126,4 +126,12 @@ export const informationAbout = {
     toggle: (id: number) => `/sports/information-about/stadiums/toggle/${id}`,
     single: (id: number) => `/sports/information-about/stadiums/${id}`,
   },
+  associations: {
+    create: `/sports/information-about/associations`,
+    list: `/sports/information-about/associations`,
+    update: (id: number) => `/sports/information-about/associations/${id}`,
+    delete: (id: number) => `/sports/information-about/associations/${id}`,
+    toggle: (id: number) =>
+      `/sports/information-about/associations/toggle/${id}`,
+  },
 };

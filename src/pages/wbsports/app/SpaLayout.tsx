@@ -1,7 +1,7 @@
 import { Outlet } from 'react-router-dom';
 import { AppSidebar } from '@/components/sports/app/sidebar/app-sidebar';
 import { SidebarInset, SidebarProvider } from '@/components/ui/sidebar';
-import { AppPageWrapper, SpcTopnav } from '@/components';
+import { AppPageWrapper, SpcFooter, SpcTopnav } from '@/components';
 
 const SpaLayout = () => {
   return (
@@ -13,6 +13,7 @@ const SpaLayout = () => {
           <AppPageWrapper>
             <Outlet />
           </AppPageWrapper>
+          <SpcFooter />
         </SidebarInset>
       </SidebarProvider>
     </div>

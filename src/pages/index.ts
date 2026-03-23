@@ -27,3 +27,4 @@ export { default as SpaPlayerAchievements } from '@/pages/wbsports/app/achieveme
 export { default as SpaAwards } from '@/pages/wbsports/app/achievements-awards/awards/SpaAwards';
 export { default as SpaStadiums } from '@/pages/wbsports/app/information-about/stadiums/SpaStadiums';
 export { default as SpaStadiumForm } from '@/pages/wbsports/app/information-about/stadiums/SpaStadiumForm';
+export { default as SpaAssociations } from '@/pages/wbsports/app/information-about/associations/SpaAssociations';

@@ -1,6 +1,7 @@
 import loginBgSports from '@/assets/images/login-bg-sports.jpg';
 import registerBgSports from '@/assets/images/register.jpg';
 import defaultProfileImg from '@/assets/images/profile.jpg';
+import nicLogo from '@/assets/images/NIC_Logo.png';
 
 export const titles = {
   BASE_URL: import.meta.env.VITE_BASE_URL,
@@ -13,7 +14,12 @@ export const titles = {
 
 // -------------------
 
-export const images = { loginBgSports, registerBgSports, defaultProfileImg };
+export const images = {
+  loginBgSports,
+  registerBgSports,
+  defaultProfileImg,
+  nicLogo,
+};
 
 // -------------------
 
